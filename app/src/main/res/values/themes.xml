@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cardesk" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/default_background</item>
+
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryVariant">@color/blue_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/blue_primary</item>
+        <item name="colorSecondaryVariant">@color/blue_primary</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+    </style>
+
+    <style name="Theme.Cardesk" parent="Base.Theme.Cardesk" />
+</resources>

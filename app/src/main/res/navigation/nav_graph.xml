@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_search">
+
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.example.cardesk.presentation.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"/>
+
+    <fragment
+        android:id="@+id/fragment_bookmarks"
+        android:name="com.example.cardesk.presentation.BookmarksFragment"
+        android:label="BookmarksFragment"
+        tools:layout="@layout/fragment_bookmarks"/>
+
+    <fragment
+        android:id="@+id/fragment_my_ads"
+        android:name="com.example.cardesk.presentation.MyAdsFragment"
+        android:label="MyAdsFragment"
+        tools:layout="@layout/fragment_my_ads"/>
+
+    <fragment
+        android:id="@+id/fragment_chats"
+        android:name="com.example.cardesk.presentation.ChatsFragment"
+        android:label="ChatsFragment"
+        tools:layout="@layout/fragment_chats"/>
+
+    <fragment
+        android:id="@+id/fragment_other"
+        android:name="com.example.cardesk.presentation.other.OtherFragment"
+        android:label="OtherFragment"
+        tools:layout="@layout/fragment_other">
+        <action
+            android:id="@+id/action_fragment_other_to_fragment_authorization"
+            app:destination="@id/fragment_authorization" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_authorization"
+        android:name="com.example.cardesk.presentation.authorization.AuthorizationFragment"
+        android:label="AuthorizationFragment"
+        tools:layout="@layout/fragment_authorization"/>
+
+
+</navigation>

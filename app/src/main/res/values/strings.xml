@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">cardesk</string>
+    <string name="search">Search</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="my_ads">My ads</string>
+    <string name="chats">Chats</string>
+    <string name="other">Other</string>
+    <string name="sign_in">Sign in</string>
+    <string name="for_post_ads_write_messages_and_save_searches_and_bookmarks">For post ads, write messages and save searches and bookmarks</string>
+    <string name="services">Services</string>
+    <string name="car_valuation_calculator">Car valuation calculator</string>
+</resources>
