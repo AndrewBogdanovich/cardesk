@@ -59,10 +59,10 @@ dependencies {
     //gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //coroutine
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //coil
-    implementation("io.coil-kt:coil:2.2.2")
+    implementation("io.coil-kt:coil:2.4.0")
     //fragment
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     //room
@@ -71,6 +71,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.1")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.1")
     //appcenter
-    implementation("com.microsoft.appcenter:appcenter-analytics:4.4.5")
-    implementation("com.microsoft.appcenter:appcenter-crashes:4.4.5")
+    implementation("com.microsoft.appcenter:appcenter-analytics:5.0.2")
+    implementation("com.microsoft.appcenter:appcenter-crashes:5.0.2")
 }
