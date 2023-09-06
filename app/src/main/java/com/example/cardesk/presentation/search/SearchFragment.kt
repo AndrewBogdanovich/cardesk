@@ -1,14 +1,15 @@
-package com.example.cardesk.presentation
+package com.example.cardesk.presentation.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cardesk.databinding.FragmentMyAdsBinding
+import com.example.cardesk.databinding.FragmentSearchBinding
+import com.example.cardesk.presentation.setupToolbar
 
-class MyAdsFragment : Fragment() {
-    private var _binding: FragmentMyAdsBinding? = null
+class SearchFragment : Fragment() {
+    private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,8 +17,8 @@ class MyAdsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMyAdsBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, title = "My ads")
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        setupToolbar(isShowing = false)
         return binding.root
     }
 
@@ -26,3 +27,4 @@ class MyAdsFragment : Fragment() {
         _binding = null
     }
 }
+

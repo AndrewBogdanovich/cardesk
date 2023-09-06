@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.other
+package com.example.cardesk.presentation.other.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cardesk.R
+import com.example.cardesk.presentation.other.model.OtherSettingsItem
 
 class OtherSettingsMenuAdapter :
     RecyclerView.Adapter<OtherSettingsViewHolder>() {
 
     private val adapterData = mutableListOf<OtherSettingsItem>()
+    private var onClickListener: OnClickListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OtherSettingsViewHolder {
         val layout = when (viewType) {
             HEADER_TYPE -> R.layout.other_menu_header_item
@@ -30,8 +33,23 @@ class OtherSettingsMenuAdapter :
     override fun getItemCount(): Int = adapterData.size
 
     override fun onBindViewHolder(holder: OtherSettingsViewHolder, position: Int) {
+        val item = adapterData[position]
         holder.bind(adapterData[position])
+        holder.itemView.setOnClickListener {
+            if (onClickListener!= null){
+                onClickListener!!.onClick(position, item)
+            }
+        }
     }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: OtherSettingsItem)
+    }
+
 
     override fun getItemViewType(position: Int): Int {
         return when (adapterData[position]) {
@@ -52,7 +70,6 @@ class OtherSettingsMenuAdapter :
         private const val HEADER_TYPE = 0
         private const val ITEM_TYPE = 1
         private const val SIGN_IN_TYPE = 2
-
     }
 }
 

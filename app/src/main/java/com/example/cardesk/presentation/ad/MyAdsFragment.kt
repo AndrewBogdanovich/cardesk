@@ -1,14 +1,15 @@
-package com.example.cardesk.presentation
+package com.example.cardesk.presentation.ad
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cardesk.databinding.FragmentChatsBinding
+import com.example.cardesk.databinding.FragmentMyAdsBinding
+import com.example.cardesk.presentation.setupToolbar
 
-class ChatsFragment: Fragment() {
-    private var _binding: FragmentChatsBinding? = null
+class MyAdsFragment : Fragment() {
+    private var _binding: FragmentMyAdsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,8 +17,8 @@ class ChatsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentChatsBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, title = "Chats")
+        _binding = FragmentMyAdsBinding.inflate(inflater, container, false)
+        setupToolbar(isShowing = true, title = "My ads")
         return binding.root
     }
 

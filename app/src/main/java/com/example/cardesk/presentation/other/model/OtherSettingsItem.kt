@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.other
+package com.example.cardesk.presentation.other.model
 
 sealed class OtherSettingsItem {
     data class SettingsSignIn(val title: String, val description: String) : OtherSettingsItem()
