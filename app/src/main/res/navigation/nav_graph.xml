@@ -17,9 +17,9 @@
         tools:layout="@layout/fragment_bookmarks" />
     <fragment
         android:id="@+id/fragment_my_ads"
-        android:name="com.example.cardesk.presentation.ad.MyAdsFragment"
+        android:name="com.example.cardesk.presentation.advertisement.MyAdvertisementFragment"
         android:label="MyAdsFragment"
-        tools:layout="@layout/fragment_my_ads" />
+        tools:layout="@layout/fragment_my_advertisement" />
     <fragment
         android:id="@+id/fragment_chats"
         android:name="com.example.cardesk.presentation.chat.ChatsFragment"

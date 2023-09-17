@@ -14,7 +14,7 @@
         android:id="@+id/fragment_my_ads"
         android:enabled="true"
         android:icon="@drawable/baseline_add_box_24"
-        android:title="@string/my_ads" />
+        android:title="@string/my_advertisement" />
     <item
         android:id="@+id/fragment_chats"
         android:enabled="true"
