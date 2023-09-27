@@ -7,28 +7,38 @@
     android:orientation="vertical"
     android:padding="25dp">
 
-    <EditText
-        android:id="@+id/login_username_et"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_username_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/edit_text_round_corner"
         android:hint="@string/username_or_e_mail"
-        android:inputType="textEmailAddress"
-        android:paddingHorizontal="10dp"
-        android:textColorHint="@color/blue_text" />
+        app:endIconMode="custom">
 
-    <EditText
-        android:id="@+id/login_password_et"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_username_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_round_corner"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_password_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/edit_text_round_corner"
-        android:drawableEnd="@drawable/baseline_password_eye"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:paddingHorizontal="10dp"
-        android:textColorHint="@color/blue_text" />
+        app:endIconDrawable="@drawable/baseline_password_eye"
+        app:endIconMode="custom">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:background="@drawable/edit_text_round_corner" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/login_btn"
