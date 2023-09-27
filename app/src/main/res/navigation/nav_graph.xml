@@ -53,7 +53,7 @@
             app:destination="@id/fragment_modification_catalog" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_car_trade_simulator"
-            app:destination="@id/fragment_car_trade_simulator" />
+            app:destination="@id/carTradeSimulatorFragment" />
         <action
             android:id="@+id/action_fragment_other_to_privacyPolicyFragment"
             app:destination="@id/privacyPolicyFragment" />
@@ -71,7 +71,11 @@
         android:id="@+id/fragment_authorization"
         android:name="com.example.cardesk.presentation.authorization.AuthorizationFragment"
         android:label="AuthorizationFragment"
-        tools:layout="@layout/fragment_authorization" />
+        tools:layout="@layout/fragment_authorization" >
+        <action
+            android:id="@+id/action_fragment_authorization_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_vin_checker"
         android:name="com.example.cardesk.presentation.other.view.source.VINCheckFragment"
@@ -103,7 +107,7 @@
         android:label="ModificationCatalogFragment"
         tools:layout="@layout/fragment_modification_catalog"/>
     <fragment
-        android:id="@+id/fragment_car_trade_simulator"
+        android:id="@+id/carTradeSimulatorFragment"
         android:name="com.example.cardesk.presentation.other.view.source.CarTraderSimulatorFragment"
         android:label="CarTraderSimulatorFragment"
         tools:layout="@layout/fragment_car_trader_simulator"/>
@@ -127,5 +131,10 @@
         android:name="com.example.cardesk.presentation.other.view.other.ReportProblemFragment"
         android:label="ReportProblemFragment"
         tools:layout="@layout/fragment_report_problem"/>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.cardesk.presentation.authorization.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password"/>
 
 </navigation>

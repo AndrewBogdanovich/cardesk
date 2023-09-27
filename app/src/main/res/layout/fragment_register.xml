@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dp">
 
-    <TextView
-        android:text="fragment register"
+    <EditText
+        android:id="@+id/register_username_et"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_round_corner"
+        android:hint="@string/your_name"
+        android:inputType="textCapSentences"
+        android:paddingHorizontal="10dp"
+        android:textColorHint="@color/blue_text" />
+
+    <EditText
+        android:id="@+id/register_email_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_round_corner"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="10dp"
+        android:textColorHint="@color/blue_text" />
+
+    <EditText
+        android:id="@+id/register_password_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_round_corner"
+        android:drawableEnd="@drawable/baseline_password_eye"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="10dp"
+        android:textColorHint="@color/blue_text" />
+
+    <EditText
+        android:id="@+id/register_confirm_password_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_round_corner"
+        android:drawableEnd="@drawable/baseline_password_eye"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="10dp"
+        android:textColorHint="@color/blue_text" />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="@string/register" />
 
 </LinearLayout>
