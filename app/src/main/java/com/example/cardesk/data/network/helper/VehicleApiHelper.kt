@@ -1,7 +1,7 @@
-package com.example.cardesk.network.helper
+package com.example.cardesk.data.network.helper
 
-import com.example.cardesk.network.model.VehicleRequest
-import com.example.cardesk.network.model.VehicleResponse
+import com.example.cardesk.data.network.model.VehicleRequest
+import com.example.cardesk.data.network.model.VehicleResponse
 
 interface VehicleApiHelper {
     suspend fun getAllVehicle(): List<VehicleResponse>

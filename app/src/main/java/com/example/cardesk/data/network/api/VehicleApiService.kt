@@ -1,7 +1,7 @@
-package com.example.cardesk.network.api
+package com.example.cardesk.data.network.api
 
-import com.example.cardesk.network.model.VehicleRequest
-import com.example.cardesk.network.model.VehicleResponse
+import com.example.cardesk.data.network.model.VehicleRequest
+import com.example.cardesk.data.network.model.VehicleResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST

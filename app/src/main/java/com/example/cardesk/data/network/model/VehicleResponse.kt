@@ -1,4 +1,4 @@
-package com.example.cardesk.network.model
+package com.example.cardesk.data.network.model
 
 import com.google.gson.annotations.SerializedName
 

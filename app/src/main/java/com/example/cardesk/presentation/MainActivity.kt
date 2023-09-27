@@ -8,8 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.cardesk.R
 import com.example.cardesk.databinding.ActivityMainBinding
-import com.example.cardesk.network.RetrofitClient
-import com.example.cardesk.network.helper.VehicleApiImpl
+import com.example.cardesk.data.network.RetrofitClient
+import com.example.cardesk.data.network.helper.VehicleApiImpl
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes

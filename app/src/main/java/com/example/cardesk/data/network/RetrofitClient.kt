@@ -1,6 +1,6 @@
-package com.example.cardesk.network
+package com.example.cardesk.data.network
 
-import com.example.cardesk.network.api.VehicleApiService
+import com.example.cardesk.data.network.api.VehicleApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

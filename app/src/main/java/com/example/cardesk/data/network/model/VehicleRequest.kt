@@ -1,4 +1,4 @@
-package com.example.cardesk.network.model
+package com.example.cardesk.data.network.model
 
 data class VehicleRequest(
     val mark: String,

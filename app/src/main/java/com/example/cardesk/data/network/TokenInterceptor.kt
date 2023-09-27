@@ -1,4 +1,4 @@
-package com.example.cardesk.network
+package com.example.cardesk.data.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
