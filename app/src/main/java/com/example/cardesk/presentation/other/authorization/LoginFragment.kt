@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.authorization
+package com.example.cardesk.presentation.other.authorization
 
 import android.os.Bundle
 import android.text.InputType

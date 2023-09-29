@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.decorator
+package com.example.cardesk.presentation.other.decorator
 
 import android.graphics.Canvas
 import android.graphics.Rect

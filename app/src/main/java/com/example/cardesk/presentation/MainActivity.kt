@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setSupportActionBar(binding.appToolbar)
-        setupAppCenter()
+        //setupAppCenter()
         setupNavigationController()
     }
 
@@ -59,15 +59,5 @@ class MainActivity : AppCompatActivity() {
             Analytics::class.java,
             Crashes::class.java
         )
-    }
-
-    private fun loadFromNetwork() {
-        val vehicleApiHelper = VehicleApiImpl(RetrofitClient.vehicleApiService)
-        GlobalScope.launch {
-            val all = vehicleApiHelper.getAllVehicle()
-            val byModel = vehicleApiHelper.getVehiclesByModel("model='Mustang'")
-            val byMark = vehicleApiHelper.getVehiclesByMark("mark='Ford'")
-            val q = byMark
-        }
     }
 }

@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_authorization"
-        android:name="com.example.cardesk.presentation.authorization.AuthorizationFragment"
+        android:name="com.example.cardesk.presentation.other.authorization.AuthorizationFragment"
         android:label="AuthorizationFragment"
         tools:layout="@layout/fragment_authorization" >
         <action
@@ -133,7 +133,7 @@
         tools:layout="@layout/fragment_report_problem"/>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.cardesk.presentation.authorization.ForgotPasswordFragment"
+        android:name="com.example.cardesk.presentation.other.authorization.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password"/>
 

@@ -1,9 +1,11 @@
 package com.example.cardesk.data.network
 
+import com.example.cardesk.data.network.api.AdvertisementApiService
 import com.example.cardesk.data.network.api.VehicleApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 object RetrofitClient {
 
@@ -21,4 +23,7 @@ object RetrofitClient {
 
     val vehicleApiService: VehicleApiService =
         getRetrofitInstance().create(VehicleApiService::class.java)
+
+    val advertisementApiService: AdvertisementApiService =
+        getRetrofitInstance().create(AdvertisementApiService::class.java)
 }

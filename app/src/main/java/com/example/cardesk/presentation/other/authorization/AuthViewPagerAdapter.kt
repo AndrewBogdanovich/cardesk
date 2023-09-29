@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.authorization
+package com.example.cardesk.presentation.other.authorization
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
