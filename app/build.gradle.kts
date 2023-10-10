@@ -68,9 +68,6 @@ dependencies {
     //room
     implementation("androidx.room:room-runtime:2.5.2")
     //navigation component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
-    //appcenter
-    implementation("com.microsoft.appcenter:appcenter-analytics:5.0.2")
-    implementation("com.microsoft.appcenter:appcenter-crashes:5.0.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 }

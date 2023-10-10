@@ -8,13 +8,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.cardesk.R
 import com.example.cardesk.databinding.ActivityMainBinding
-import com.example.cardesk.data.network.RetrofitClient
-import com.example.cardesk.data.network.helper.VehicleApiImpl
-import com.microsoft.appcenter.AppCenter
-import com.microsoft.appcenter.analytics.Analytics
-import com.microsoft.appcenter.crashes.Crashes
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -26,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setSupportActionBar(binding.appToolbar)
-        //setupAppCenter()
         setupNavigationController()
     }
 
@@ -50,14 +42,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    private fun setupAppCenter() {
-        AppCenter.start(
-            application,
-            "49c15e75-9601-40da-9342-514c145674a8",
-            Analytics::class.java,
-            Crashes::class.java
-        )
     }
 }

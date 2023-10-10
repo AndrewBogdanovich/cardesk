@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
 import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.AdvertisementItemBinding
+import java.text.SimpleDateFormat
 
 class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
     private val adapterData = mutableListOf<AdvertisementResponse>()
@@ -25,14 +26,17 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
                 binding.adsVehicleTitleTv.text =
                     this.mark + " " + this.model + " " + this.generation
                 binding.adsPriceTv.text = this.price
-                binding.adsPhotoIv.load(this.photos){
+                binding.adsPhotoIv.load(this.photos) {
                     crossfade(true)
                     placeholder(R.drawable.baseline_image_placeholder)
-                    transformations(CircleCropTransformation())
+                    transformations(RoundedCornersTransformation())
                 }
                 binding.adsDescriptionEt.text =
                     this.year + ", " + this.transmission + ", " + this.engineVolume + ", " + this.engineType + ", " + this.bodyType + ", " + this.mileage
-                binding.adsCityAndDateTv.text = this.city
+
+                val date = SimpleDateFormat("dd MMMM yyyy").format(this.dateCreating.toLong())
+                binding.adsCityAndDateTv.text =
+                    this.city + " : " + date
             }
         }
     }

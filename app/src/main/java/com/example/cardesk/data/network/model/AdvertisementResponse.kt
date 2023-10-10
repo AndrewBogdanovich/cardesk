@@ -7,7 +7,7 @@ data class AdvertisementResponse(
     @SerializedName("generation") val generation: String,
     @SerializedName("city") val city: String,
     @SerializedName("year") val year: String,
-    @SerializedName("created") val created: String,
+    @SerializedName("created") val dateCreating: String,
     @SerializedName("photos") val photos: String,
     @SerializedName("mileage") val mileage: String,
     @SerializedName("engine_volume") val engineVolume: String,

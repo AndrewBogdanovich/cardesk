@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
+    android:layout_marginHorizontal="5dp"
     android:orientation="vertical"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp">
@@ -19,9 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:paddingVertical="5dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="BMW 3 series E46" />
@@ -42,8 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:paddingVertical="5dp"
             android:textColor="@color/black"
+            android:paddingBottom="5dp"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -63,18 +62,19 @@
                 android:layout_margin="0dp"
                 android:id="@+id/ads_photo_iv"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="200dp"
                 android:layout_marginHorizontal="5dp"
                 tools:src="@tools:sample/backgrounds/scenic" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/ads_description_et"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:maxLines="2"
             android:paddingVertical="5dp"
+            android:textSize="16sp"
             android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ads_photo_container"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:paddingVertical="5dp"
+            android:paddingBottom="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ads_description_et"
             tools:text="Minsk - 26 September" />
