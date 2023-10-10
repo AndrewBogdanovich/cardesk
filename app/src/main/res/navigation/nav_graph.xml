@@ -14,17 +14,29 @@
         android:id="@+id/fragment_bookmarks"
         android:name="com.example.cardesk.presentation.bookmark.BookmarksFragment"
         android:label="BookmarksFragment"
-        tools:layout="@layout/fragment_bookmarks" />
+        tools:layout="@layout/fragment_bookmarks" >
+        <action
+            android:id="@+id/action_fragment_bookmarks_to_fragment_authorization"
+            app:destination="@id/fragment_authorization" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_my_ads"
         android:name="com.example.cardesk.presentation.advertisement.MyAdvertisementFragment"
         android:label="MyAdsFragment"
-        tools:layout="@layout/fragment_my_advertisement" />
+        tools:layout="@layout/fragment_my_advertisement" >
+        <action
+            android:id="@+id/action_fragment_my_ads_to_fragment_authorization"
+            app:destination="@id/fragment_authorization" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_chats"
         android:name="com.example.cardesk.presentation.chat.ChatsFragment"
         android:label="ChatsFragment"
-        tools:layout="@layout/fragment_chats" />
+        tools:layout="@layout/fragment_chats" >
+        <action
+            android:id="@+id/action_fragment_chats_to_fragment_authorization"
+            app:destination="@id/fragment_authorization" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_other"
         android:name="com.example.cardesk.presentation.other.view.OtherFragment"
