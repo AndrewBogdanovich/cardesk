@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentForgotPasswordBinding
+import com.example.cardesk.presentation.displayBottomNavBar
 import com.example.cardesk.presentation.setupToolbar
 
 class ForgotPasswordFragment : Fragment() {
@@ -21,6 +22,11 @@ class ForgotPasswordFragment : Fragment() {
         _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.forgot_password))
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        displayBottomNavBar(false)
     }
 
     override fun onDestroyView() {
