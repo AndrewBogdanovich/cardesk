@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_fragment_my_ads_to_fragment_authorization"
             app:destination="@id/fragment_authorization" />
+        <action
+            android:id="@+id/action_fragment_my_ads_to_createAdvertisementFragment"
+            app:destination="@id/createAdvertisementFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_chats"
@@ -148,5 +151,10 @@
         android:name="com.example.cardesk.presentation.other.authorization.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password"/>
+    <fragment
+        android:id="@+id/createAdvertisementFragment"
+        android:name="com.example.cardesk.presentation.advertisement.CreateAdvertisementFragment"
+        android:label="CreateAdvertisementFragment"
+        tools:layout="@layout/fragment_create_advertisement"/>
 
 </navigation>

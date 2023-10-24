@@ -1,4 +1,4 @@
-package com.example.cardesk.domain
+package com.example.cardesk.domain.usecase
 
 import com.example.cardesk.data.network.RetrofitClient
 import com.example.cardesk.data.network.helper.VehicleApiImpl
