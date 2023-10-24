@@ -16,7 +16,7 @@ class CreateAdvertisementFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCreateAdvertisementBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, title = "New advertisement", isBackButtonEnabled = true)
         return binding.root

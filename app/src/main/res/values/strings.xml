@@ -33,4 +33,5 @@
     <string name="login_to_be_able_to_write_messages">Login to be able to write messages</string>
     <string name="login_to_be_able_to_bookmark_posts">Login to be able to bookmark posts</string>
     <string name="login_to_be_able_to_advertise">Login to be able to advertise</string>
+    <string name="vehicle_photo">Vehicle photo</string>
 </resources>
