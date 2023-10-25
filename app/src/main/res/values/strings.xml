@@ -34,4 +34,9 @@
     <string name="login_to_be_able_to_bookmark_posts">Login to be able to bookmark posts</string>
     <string name="login_to_be_able_to_advertise">Login to be able to advertise</string>
     <string name="vehicle_photo">Vehicle photo</string>
+    <string name="clear">clear</string>
+    <string name="add_ads">add ads</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="menu_item_icon">menu item icon</string>
+    <string name="mark_model_year_mileage">Mark, model, year, mileage</string>
 </resources>
