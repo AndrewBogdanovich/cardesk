@@ -44,7 +44,7 @@ class MyAdvertisementFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 navigateTo(R.id.action_fragment_my_ads_to_createAdvertisementFragment)
-                return true
+                return false
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }

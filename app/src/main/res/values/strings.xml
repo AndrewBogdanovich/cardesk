@@ -39,4 +39,20 @@
     <string name="vehicle">Vehicle</string>
     <string name="menu_item_icon">menu item icon</string>
     <string name="mark_model_year_mileage">Mark, model, year, mileage</string>
+    <string name="vehicle_parameters">Vehicle parameters</string>
+    <string name="mark">Mark</string>
+    <string name="model">Model</string>
+    <string name="mileage">Mileage</string>
+    <string name="mileage_km">Mileage (km)</string>
+    <string name="year">Year</string>
+    <string name="color">Color</string>
+    <string name="generation">Generation</string>
+    <string name="engine_volume">Engine volume</string>
+    <string name="engine_type">Engine type</string>
+    <string name="description">Description</string>
+    <string name="description_and_price">Description and price</string>
+    <string name="price">Price ($)</string>
+    <string name="save">Save</string>
+    <string name="create">Create</string>
+    <string name="chose_photo">Chose photo</string>
 </resources>

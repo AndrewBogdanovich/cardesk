@@ -5,4 +5,5 @@
     <color name="default_background">#E8EDF2</color>
     <color name="blue_primary">#419BDB</color>
     <color name="blue_text">#346299</color>
+    <color name="divider">#818181</color>
 </resources>
