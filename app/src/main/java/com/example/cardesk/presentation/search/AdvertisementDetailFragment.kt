@@ -11,6 +11,7 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentAdvertisementDetailBinding
+import com.example.cardesk.presentation.displayBottomNavBar
 import com.example.cardesk.presentation.setupToolbar
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -26,6 +27,7 @@ class AdvertisementDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAdvertisementDetailBinding.inflate(inflater, container, false)
+        displayBottomNavBar(false)
         viewModel.viewModelScope.launch {
             val adsId = arguments?.getString("adsObjectId")
             adsId?.let {
@@ -53,5 +55,6 @@ class AdvertisementDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        displayBottomNavBar(true)
     }
 }
