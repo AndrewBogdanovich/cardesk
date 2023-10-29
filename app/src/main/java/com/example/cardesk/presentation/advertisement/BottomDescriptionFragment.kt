@@ -23,7 +23,7 @@ class BottomDescriptionFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = BottomDescriptionSheetLayoutBinding.inflate(layoutInflater, container, false)
         binding.closeFragment.setOnClickListener {
             dismiss()
@@ -31,6 +31,8 @@ class BottomDescriptionFragment : BottomSheetDialogFragment() {
         binding.saveBtn.setOnClickListener {
             saveDescriptionText()
         }
+
+        binding.descriptionEt.text.append(arguments?.getString("adsDescription"))
         return binding.root
     }
 

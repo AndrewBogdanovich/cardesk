@@ -11,13 +11,13 @@ import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentCreateAdvertisementBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class CreateAdvertisementFragment: Fragment(), BottomDescriptionFragment.BottomDescriptionListener {
+class CreateAdvertisementFragment : Fragment(),
+    BottomDescriptionFragment.BottomDescriptionListener {
 
     private var _binding: FragmentCreateAdvertisementBinding? = null
     private val binding get() = _binding!!
@@ -40,18 +40,21 @@ class CreateAdvertisementFragment: Fragment(), BottomDescriptionFragment.BottomD
         setupMenu()
     }
 
-    private fun selectPhoto(){
+    private fun selectPhoto() {
 
     }
 
-    private fun showBottomSheetFragment(){
+    private fun showBottomSheetFragment() {
+        val bundle = Bundle()
+        bundle.putString("adsDescription", binding.descriptionEt.text.toString())
         val bsdf = BottomDescriptionFragment()
+        bsdf.arguments = bundle
         bsdf.listener(this)
         bsdf.show(childFragmentManager, "tag")
     }
 
-    private fun setupMenu(){
-        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider{
+    private fun setupMenu() {
+        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.toolbar_clear_ads_menu, menu)
             }
