@@ -1,5 +1,6 @@
 package com.example.cardesk.presentation
 
+import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -25,8 +26,8 @@ fun Fragment.setToolbarColor(color: Int) {
     activity?.window?.statusBarColor = color
 }
 
-fun Fragment.navigateTo(viewId: Int) {
-    this.findNavController().navigate(viewId)
+fun Fragment.navigateTo(viewId: Int, bundle: Bundle? = null) {
+    this.findNavController().navigate(viewId, bundle)
 }
 
 fun Fragment.displayBottomNavBar(isShowing: Boolean) {

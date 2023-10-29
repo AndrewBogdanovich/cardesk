@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat
 
 class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
     private val adapterData = mutableListOf<AdvertisementResponse>()
+    private var onClickListener: OnClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddsViewHolder {
         val binding =
             AdvertisementItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -31,12 +32,17 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
                     placeholder(R.drawable.baseline_image_placeholder)
                     transformations(RoundedCornersTransformation())
                 }
-                binding.adsDescriptionEt.text =
+                binding.adsParamsDescriptionEt.text =
                     this.year + ", " + this.transmission + ", " + this.engineVolume + ", " + this.engineType + ", " + this.bodyType + ", " + this.mileage
 
                 val date = SimpleDateFormat("dd MMMM yyyy").format(this.dateCreating.toLong())
                 binding.adsCityAndDateTv.text =
                     this.city + " : " + date
+            }
+        }
+        holder.itemView.setOnClickListener {
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, adapterData[position])
             }
         }
     }
@@ -46,6 +52,14 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
             clear()
             addAll(data)
         }
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: AdvertisementResponse)
     }
 }
 

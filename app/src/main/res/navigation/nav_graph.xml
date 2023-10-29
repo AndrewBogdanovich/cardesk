@@ -9,7 +9,11 @@
         android:id="@+id/fragment_search"
         android:name="com.example.cardesk.presentation.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_fragment_search_to_advertisementDetailFragment"
+            app:destination="@id/advertisementDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_bookmarks"
         android:name="com.example.cardesk.presentation.bookmark.BookmarksFragment"
@@ -156,5 +160,9 @@
         android:name="com.example.cardesk.presentation.advertisement.CreateAdvertisementFragment"
         android:label="CreateAdvertisementFragment"
         tools:layout="@layout/fragment_create_advertisement"/>
-
+    <fragment
+        android:id="@+id/advertisementDetailFragment"
+        android:name="com.example.cardesk.presentation.search.AdvertisementDetailFragment"
+        android:label="AdvertisementDetailFragment"
+        tools:layout="@layout/fragment_advertisement_detail"/>
 </navigation>

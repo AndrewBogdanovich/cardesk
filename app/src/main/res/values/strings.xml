@@ -55,4 +55,6 @@
     <string name="save">Save</string>
     <string name="create">Create</string>
     <string name="chose_photo">Chose photo</string>
+    <string name="to_bookmark">To bookmark</string>
+    <string name="share">Share</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.cardesk.data.network.model
 import com.google.gson.annotations.SerializedName
 
 data class AdvertisementResponse(
+    @SerializedName("objectId") val id: String,
     @SerializedName("model") val model: String,
     @SerializedName("generation") val generation: String,
     @SerializedName("city") val city: String,
@@ -16,4 +17,6 @@ data class AdvertisementResponse(
     @SerializedName("body_type") val bodyType: String,
     @SerializedName("mark") val mark: String,
     @SerializedName("engine_type") val engineType: String,
+    @SerializedName("description") val description: String,
+    @SerializedName("color") val color: String,
 )
