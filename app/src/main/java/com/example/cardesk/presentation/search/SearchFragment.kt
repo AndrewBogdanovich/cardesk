@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
 import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentSearchBinding
+import com.example.cardesk.presentation.isWidthDisplay
 import com.example.cardesk.presentation.navigateTo
 import com.example.cardesk.presentation.setupToolbar
 import kotlinx.coroutines.launch
@@ -45,7 +47,11 @@ class SearchFragment : Fragment() {
         rvAdapter = AdsAdapter()
         rvAdapter.setData(data)
         binding.searchRv.apply {
-            layoutManager = LinearLayoutManager(this.context)
+            layoutManager = if (isWidthDisplay()){
+                GridLayoutManager(this.context, 2)
+            } else {
+                LinearLayoutManager(this.context)
+            }
             addItemDecoration(
                 DividerItemDecoration(
                     this.context,

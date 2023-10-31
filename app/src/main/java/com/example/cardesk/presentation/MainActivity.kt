@@ -1,6 +1,7 @@
 package com.example.cardesk.presentation
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
@@ -26,15 +27,37 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        binding.bottomNavigationView.apply {
-            navController.let { navController ->
-                NavigationUI.setupWithNavController(this, navController)
-                setOnItemSelectedListener { item ->
-                    NavigationUI.onNavDestinationSelected(item, navController)
-                    true
+        val displayMetrics = resources.displayMetrics
+        val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+
+        if (dpWidth > 600) {
+            binding.railNavigationView.visibility = View.VISIBLE
+            binding.bottomNavigationView.visibility = View.GONE
+            binding.railNavigationView.apply {
+                navController.let { navController ->
+                    NavigationUI.setupWithNavController(this, navController)
+                    setOnItemSelectedListener { item ->
+                        NavigationUI.onNavDestinationSelected(item, navController)
+                        true
+                    }
+                    setOnItemReselectedListener {
+                        navController.popBackStack(destinationId = it.itemId, inclusive = false)
+                    }
                 }
-                setOnItemReselectedListener {
-                    navController.popBackStack(destinationId = it.itemId, inclusive = false)
+            }
+        } else {
+            binding.railNavigationView.visibility = View.GONE
+            binding.bottomNavigationView.visibility = View.VISIBLE
+            binding.bottomNavigationView.apply {
+                navController.let { navController ->
+                    NavigationUI.setupWithNavController(this, navController)
+                    setOnItemSelectedListener { item ->
+                        NavigationUI.onNavDestinationSelected(item, navController)
+                        true
+                    }
+                    setOnItemReselectedListener {
+                        navController.popBackStack(destinationId = it.itemId, inclusive = false)
+                    }
                 }
             }
         }
