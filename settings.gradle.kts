@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "cardesk"
 include(":app")
- 
+include(":data")
+include(":domain")

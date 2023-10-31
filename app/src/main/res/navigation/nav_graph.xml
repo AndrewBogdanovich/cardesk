@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_search"
-        android:name="com.example.cardesk.presentation.search.SearchFragment"
+        android:name="com.example.cardesk.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_bookmarks"
-        android:name="com.example.cardesk.presentation.bookmark.BookmarksFragment"
+        android:name="com.example.cardesk.bookmark.BookmarksFragment"
         android:label="BookmarksFragment"
         tools:layout="@layout/fragment_bookmarks" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_my_ads"
-        android:name="com.example.cardesk.presentation.advertisement.MyAdvertisementFragment"
+        android:name="com.example.cardesk.advertisement.MyAdvertisementFragment"
         android:label="MyAdsFragment"
         tools:layout="@layout/fragment_my_advertisement" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_chats"
-        android:name="com.example.cardesk.presentation.chat.ChatsFragment"
+        android:name="com.example.cardesk.chat.ChatsFragment"
         android:label="ChatsFragment"
         tools:layout="@layout/fragment_chats" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_other"
-        android:name="com.example.cardesk.presentation.other.view.OtherFragment"
+        android:name="com.example.cardesk.other.view.OtherFragment"
         android:label="OtherFragment"
         tools:layout="@layout/fragment_other">
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_authorization"
-        android:name="com.example.cardesk.presentation.other.authorization.AuthorizationFragment"
+        android:name="com.example.cardesk.other.authorization.AuthorizationFragment"
         android:label="AuthorizationFragment"
         tools:layout="@layout/fragment_authorization" >
         <action
@@ -97,72 +97,72 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_vin_checker"
-        android:name="com.example.cardesk.presentation.other.view.source.VINCheckFragment"
+        android:name="com.example.cardesk.other.view.source.VINCheckFragment"
         android:label="VINCheckerFragment"
         tools:layout="@layout/fragment_vin_check" />
     <fragment
         android:id="@+id/fragment_car_valuation_calculator"
-        android:name="com.example.cardesk.presentation.other.view.source.CarValuationCalculatorFragment"
+        android:name="com.example.cardesk.other.view.source.CarValuationCalculatorFragment"
         android:label="CarValuationCalculatorFragment"
         tools:layout="@layout/fragment_car_valuation_calculator" />
     <fragment
         android:id="@+id/fragment_finance"
-        android:name="com.example.cardesk.presentation.other.view.source.FinanceFragment"
+        android:name="com.example.cardesk.other.view.source.FinanceFragment"
         android:label="FinanceFragment"
         tools:layout="@layout/fragment_finance"/>
     <fragment
         android:id="@+id/fragment_installment_plan"
-        android:name="com.example.cardesk.presentation.other.view.source.InstallmentPlanFragment"
+        android:name="com.example.cardesk.other.view.source.InstallmentPlanFragment"
         android:label="InstallmentPlanFragment"
         tools:layout="@layout/fragment_installment_plan"/>
     <fragment
         android:id="@+id/fragment_vehicle_checklist"
-        android:name="com.example.cardesk.presentation.other.view.source.VehicleCheckListFragment"
+        android:name="com.example.cardesk.other.view.source.VehicleCheckListFragment"
         android:label="VehicleCheckListFragment"
         tools:layout="@layout/fragment_vehicke_checklist"/>
     <fragment
         android:id="@+id/fragment_modification_catalog"
-        android:name="com.example.cardesk.presentation.other.view.source.ModificationCatalogFragment"
+        android:name="com.example.cardesk.other.view.source.ModificationCatalogFragment"
         android:label="ModificationCatalogFragment"
         tools:layout="@layout/fragment_modification_catalog"/>
     <fragment
         android:id="@+id/carTradeSimulatorFragment"
-        android:name="com.example.cardesk.presentation.other.view.source.CarTraderSimulatorFragment"
+        android:name="com.example.cardesk.other.view.source.CarTraderSimulatorFragment"
         android:label="CarTraderSimulatorFragment"
         tools:layout="@layout/fragment_car_trader_simulator"/>
     <fragment
         android:id="@+id/appLanguageFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.AppLanguageFragment"
+        android:name="com.example.cardesk.other.view.other.AppLanguageFragment"
         android:label="AppLanguageFragment"
         tools:layout="@layout/fragment_app_language"/>
     <fragment
         android:id="@+id/appThemeFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.AppThemeFragment"
+        android:name="com.example.cardesk.other.view.other.AppThemeFragment"
         android:label="AppThemeFragment"
         tools:layout="@layout/fragment_app_theme"/>
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.PrivacyPolicyFragment"
+        android:name="com.example.cardesk.other.view.other.PrivacyPolicyFragment"
         android:label="PrivacyPolicyFragment"
         tools:layout="@layout/fragment_privacy_policy"/>
     <fragment
         android:id="@+id/reportProblemFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.ReportProblemFragment"
+        android:name="com.example.cardesk.other.view.other.ReportProblemFragment"
         android:label="ReportProblemFragment"
         tools:layout="@layout/fragment_report_problem"/>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.cardesk.presentation.other.authorization.ForgotPasswordFragment"
+        android:name="com.example.cardesk.other.authorization.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password"/>
     <fragment
         android:id="@+id/createAdvertisementFragment"
-        android:name="com.example.cardesk.presentation.advertisement.CreateAdvertisementFragment"
+        android:name="com.example.cardesk.advertisement.CreateAdvertisementFragment"
         android:label="CreateAdvertisementFragment"
         tools:layout="@layout/fragment_create_advertisement"/>
     <fragment
         android:id="@+id/advertisementDetailFragment"
-        android:name="com.example.cardesk.presentation.search.AdvertisementDetailFragment"
+        android:name="com.example.cardesk.search.AdvertisementDetailFragment"
         android:label="AdvertisementDetailFragment"
         tools:layout="@layout/fragment_advertisement_detail"/>
 </navigation>
