@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentAppThemeBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class AppThemeFragment: Fragment() {
+class AppThemeFragment : Fragment() {
     private var _binding: FragmentAppThemeBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class AppThemeFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAppThemeBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.app_theme))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.app_theme)
+        )
         return binding.root
     }
 

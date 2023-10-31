@@ -17,14 +17,16 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         binding.registerPasswordLayout.setEndIconOnClickListener {
             if (!isShowingPassword) {
-                binding.registerPasswordEt.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                binding.registerPasswordEt.inputType =
+                    InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                 isShowingPassword = true
             } else {
-                binding.registerPasswordEt.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.registerPasswordEt.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 isShowingPassword = false
             }
         }

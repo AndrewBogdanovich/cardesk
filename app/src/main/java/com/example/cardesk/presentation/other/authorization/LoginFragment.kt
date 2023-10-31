@@ -19,7 +19,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.forgotPasswordTv.setOnClickListener {
             toForgotPasswordScreen()
@@ -29,7 +29,8 @@ class LoginFragment : Fragment() {
                 binding.loginPasswordEt.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                 isShowingPassword = true
             } else {
-                binding.loginPasswordEt.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.loginPasswordEt.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 isShowingPassword = false
             }
         }

@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
+import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentSearchBinding
 import com.example.cardesk.presentation.navigateTo
 import com.example.cardesk.presentation.setupToolbar
@@ -26,23 +27,21 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = false)
         viewModel.viewModelScope.launch {
             initAdsRecyclerView(viewModel.loadAds())
             rvAdapter.setOnClickListener(object : AdsAdapter.OnClickListener {
-                override fun onClick(position: Int, model: com.example.cardesk.data.network.model.AdvertisementResponse) {
-                    val bundle = Bundle()
-                    bundle.putString("adsObjectId", model.id)
-                    navigateTo(R.id.action_fragment_search_to_advertisementDetailFragment, bundle)
+                override fun onClick(position: Int, model: AdvertisementResponse) {
+                    itemSelected(model)
                 }
             })
         }
         return binding.root
     }
 
-    private fun initAdsRecyclerView(data: List<com.example.cardesk.data.network.model.AdvertisementResponse>) {
+    private fun initAdsRecyclerView(data: List<AdvertisementResponse>) {
         rvAdapter = AdsAdapter()
         rvAdapter.setData(data)
         binding.searchRv.apply {
@@ -62,6 +61,12 @@ class SearchFragment : Fragment() {
                 })
             adapter = rvAdapter
         }
+    }
+
+    private fun itemSelected(model: AdvertisementResponse) {
+        val bundle = Bundle()
+        bundle.putString("adsObjectId", model.id)
+        navigateTo(R.id.action_fragment_search_to_advertisementDetailFragment, bundle)
     }
 
     override fun onDestroyView() {

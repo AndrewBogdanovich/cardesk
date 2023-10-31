@@ -11,7 +11,7 @@ import com.example.cardesk.databinding.AdvertisementItemBinding
 import java.text.SimpleDateFormat
 
 class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
-    private val adapterData = mutableListOf<com.example.cardesk.data.network.model.AdvertisementResponse>()
+    private val adapterData = mutableListOf<AdvertisementResponse>()
     private var onClickListener: OnClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddsViewHolder {
         val binding =
@@ -47,7 +47,7 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
         }
     }
 
-    fun setData(data: List<com.example.cardesk.data.network.model.AdvertisementResponse>) {
+    fun setData(data: List<AdvertisementResponse>) {
         adapterData.apply {
             clear()
             addAll(data)
@@ -59,7 +59,7 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
     }
 
     interface OnClickListener {
-        fun onClick(position: Int, model: com.example.cardesk.data.network.model.AdvertisementResponse)
+        fun onClick(position: Int, model: AdvertisementResponse)
     }
 }
 

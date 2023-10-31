@@ -22,7 +22,7 @@ class AuthorizationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAuthorizationBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, isBackButtonEnabled = true, title = "Authorization")
         displayBottomNavBar(false)

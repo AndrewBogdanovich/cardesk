@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentVehickeChecklistBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class VehicleCheckListFragment: Fragment() {
+class VehicleCheckListFragment : Fragment() {
     private var _binding: FragmentVehickeChecklistBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class VehicleCheckListFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentVehickeChecklistBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.vehicle_check_list))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.vehicle_check_list)
+        )
         return binding.root
     }
 

@@ -17,7 +17,7 @@ class CarValuationCalculatorFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCarValuationCalculatorBinding.inflate(inflater, container, false)
         setupToolbar(
             isShowing = true,

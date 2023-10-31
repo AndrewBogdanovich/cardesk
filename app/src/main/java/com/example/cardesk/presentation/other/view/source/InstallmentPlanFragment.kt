@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentInstallmentPlanBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class InstallmentPlanFragment: Fragment() {
+class InstallmentPlanFragment : Fragment() {
     private var _binding: FragmentInstallmentPlanBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class InstallmentPlanFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentInstallmentPlanBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.installment_plan))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.installment_plan)
+        )
         return binding.root
     }
 

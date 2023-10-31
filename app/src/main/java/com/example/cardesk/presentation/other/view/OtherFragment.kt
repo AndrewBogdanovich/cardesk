@@ -24,7 +24,7 @@ class OtherFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOtherBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, title = "Other")
         initRecyclerView()
@@ -59,7 +59,9 @@ class OtherFragment : Fragment() {
                 }
             }
 
-            else -> return
+            is OtherSettingsItem.SettingsHeader -> {
+                return
+            }
         }
     }
 

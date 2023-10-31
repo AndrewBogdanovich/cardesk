@@ -17,7 +17,7 @@ class CarTraderSimulatorFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCarTraderSimulatorBinding.inflate(inflater, container, false)
         setupToolbar(
             isShowing = true,

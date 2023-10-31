@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentModificationCatalogBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class ModificationCatalogFragment: Fragment() {
+class ModificationCatalogFragment : Fragment() {
     private var _binding: FragmentModificationCatalogBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class ModificationCatalogFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentModificationCatalogBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.modification_catalog))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.modification_catalog)
+        )
         return binding.root
     }
 

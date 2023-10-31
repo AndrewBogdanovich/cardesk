@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentPrivacyPolicyBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class PrivacyPolicyFragment: Fragment() {
+class PrivacyPolicyFragment : Fragment() {
     private var _binding: FragmentPrivacyPolicyBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class PrivacyPolicyFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPrivacyPolicyBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.privacy_policy))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.privacy_policy)
+        )
         return binding.root
     }
 

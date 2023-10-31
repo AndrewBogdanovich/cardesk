@@ -9,7 +9,7 @@ import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentAppLanguageBinding
 import com.example.cardesk.presentation.setupToolbar
 
-class AppLanguageFragment: Fragment() {
+class AppLanguageFragment : Fragment() {
     private var _binding: FragmentAppLanguageBinding? = null
     private val binding get() = _binding!!
 
@@ -17,9 +17,13 @@ class AppLanguageFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAppLanguageBinding.inflate(inflater, container, false)
-        setupToolbar(isShowing = true, isBackButtonEnabled = true, title = getString(R.string.app_language))
+        setupToolbar(
+            isShowing = true,
+            isBackButtonEnabled = true,
+            title = getString(R.string.app_language)
+        )
         return binding.root
     }
 
