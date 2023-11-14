@@ -12,8 +12,9 @@ import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
 import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentAdvertisementDetailBinding
-import com.example.cardesk.presentation.displayBottomNavBar
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.displayBottomNavBar
+import com.example.cardesk.presentation.extension.setupToolbar
+import com.example.cardesk.presentation.extension.show
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
@@ -40,7 +41,7 @@ class AdvertisementDetailFragment : Fragment() {
 
     private fun initView(advertisement: List<AdvertisementResponse>) {
         val title =
-            advertisement[0].mark + " " + advertisement[0].model + " " + advertisement[0].generation
+            advertisement[0].make + " " + advertisement[0].model + " " + advertisement[0].generation
         setupToolbar(isShowing = true, isBackButtonEnabled = true, title = title)
         binding.adsPriceTv.text = advertisement[0].price
         binding.adsPhotoIv.load(advertisement[0].photos) {
@@ -54,7 +55,7 @@ class AdvertisementDetailFragment : Fragment() {
         val date =
             SimpleDateFormat("dd MMMM yyyy").format(advertisement[0].dateCreating.toLong())
         binding.adsCityAndDateTv.text = advertisement[0].city + " : " + date
-        binding.iconsLayout.visibility = View.VISIBLE
+        binding.iconsLayout.show()
     }
 
     override fun onDestroyView() {

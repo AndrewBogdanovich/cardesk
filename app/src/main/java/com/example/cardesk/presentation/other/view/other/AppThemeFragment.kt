@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentAppThemeBinding
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.setupToolbar
 
 class AppThemeFragment : Fragment() {
     private var _binding: FragmentAppThemeBinding? = null

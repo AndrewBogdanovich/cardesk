@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentOtherBinding
-import com.example.cardesk.presentation.navigateTo
+import com.example.cardesk.presentation.extension.navigateTo
+import com.example.cardesk.presentation.extension.setupToolbar
 import com.example.cardesk.presentation.other.adapter.OtherSettingsMenuAdapter
 import com.example.cardesk.presentation.other.model.OtherSettingsItem
-import com.example.cardesk.presentation.setupToolbar
 
 class OtherFragment : Fragment() {
     private var _binding: FragmentOtherBinding? = null

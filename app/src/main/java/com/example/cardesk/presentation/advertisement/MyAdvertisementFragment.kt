@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentMyAdvertisementBinding
-import com.example.cardesk.presentation.navigateTo
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.navigateTo
+import com.example.cardesk.presentation.extension.setupToolbar
 
 class MyAdvertisementFragment : Fragment() {
     private var _binding: FragmentMyAdvertisementBinding? = null

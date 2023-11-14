@@ -25,7 +25,7 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
         with(holder) {
             with(adapterData[position]) {
                 binding.adsVehicleTitleTv.text =
-                    this.mark + " " + this.model + " " + this.generation
+                    this.make + " " + this.model + " " + this.generation
                 binding.adsPriceTv.text = this.price
                 binding.adsPhotoIv.load(this.photos) {
                     crossfade(true)

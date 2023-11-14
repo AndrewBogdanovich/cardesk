@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cardesk.R
+import com.example.cardesk.presentation.extension.hide
+import com.example.cardesk.presentation.extension.show
 import com.example.cardesk.presentation.other.model.OtherSettingsItem
 
 class OtherSettingsMenuAdapter :
@@ -80,8 +82,7 @@ class OtherSettingsViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         val rowArrowIcon = view.findViewById<ImageView>(R.id.row_arrow_icon)
         rowArrowIcon.setImageResource(R.drawable.baseline_arrow_forward_ios_24)
-        if (items.isArrowEnabled) rowArrowIcon.visibility =
-            View.VISIBLE else rowArrowIcon.visibility = View.GONE
+        if (items.isArrowEnabled) rowArrowIcon.show() else rowArrowIcon.hide()
 
         if (items.imageId !=null){
             val rowIcon = view.findViewById<ImageView>(R.id.row_icon)

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentChatsBinding
-import com.example.cardesk.presentation.navigateTo
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.navigateTo
+import com.example.cardesk.presentation.extension.setupToolbar
 
 class ChatsFragment: Fragment() {
     private var _binding: FragmentChatsBinding? = null

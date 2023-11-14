@@ -22,7 +22,7 @@
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/select_mark"
+            android:id="@+id/select_make"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
@@ -31,12 +31,12 @@
             app:cardElevation="0dp">
 
             <TextView
-                android:id="@+id/selected_mark_tv"
+                android:id="@+id/selected_make_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:layout_weight="1"
-                android:text="@string/mark"
+                android:text="@string/make"
                 android:textColor="@color/blue_text"
                 android:textSize="16sp"
                 app:drawableRightCompat="@drawable/baseline_arrow_drop_down_24" />

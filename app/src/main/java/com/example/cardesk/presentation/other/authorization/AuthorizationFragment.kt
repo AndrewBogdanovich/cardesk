@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cardesk.databinding.FragmentAuthorizationBinding
-import com.example.cardesk.presentation.displayBottomNavBar
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.displayBottomNavBar
+import com.example.cardesk.presentation.extension.setupToolbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 class AuthorizationFragment : Fragment() {

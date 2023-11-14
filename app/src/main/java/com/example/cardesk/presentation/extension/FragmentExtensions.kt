@@ -1,14 +1,12 @@
-package com.example.cardesk.presentation
+package com.example.cardesk.presentation.extension
 
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.cardesk.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigationrail.NavigationRailView
 
 fun Fragment.setupToolbar(
     isShowing: Boolean,
@@ -31,26 +29,11 @@ fun Fragment.navigateTo(viewId: Int, bundle: Bundle? = null) {
     this.findNavController().navigate(viewId, bundle)
 }
 
-fun Fragment.isWidthDisplay(): Boolean {
-    val displayMetrics = resources.displayMetrics
-    val dpWidth = displayMetrics.widthPixels / displayMetrics.density
-    return dpWidth > 600
-}
-
 fun Fragment.displayBottomNavBar(isShowing: Boolean) {
-    if (isWidthDisplay()) {
-        val navView = activity?.findViewById<NavigationRailView>(R.id.rail_navigation_view)
-        if (isShowing) {
-            navView?.visibility = View.VISIBLE
-        } else {
-            navView?.visibility = View.GONE
-        }
+    val navView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+    if (isShowing) {
+        navView?.show()
     } else {
-        val navView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-        if (isShowing) {
-            navView?.visibility = View.VISIBLE
-        } else {
-            navView?.visibility = View.GONE
-        }
+        navView?.hide()
     }
 }

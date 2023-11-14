@@ -11,16 +11,18 @@ import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentCreateAdvertisementBinding
-import com.example.cardesk.presentation.setupToolbar
+import com.example.cardesk.presentation.extension.setupToolbar
 
 class CreateAdvertisementFragment : Fragment(),
-    BottomDescriptionFragment.BottomDescriptionListener {
-
+    BottomDescriptionDialogFragment.BottomDescriptionListener,
+    BottomMakeDialogFragment.BottomMakeListener {
     private var _binding: FragmentCreateAdvertisementBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: CreateAdvertisementViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +31,10 @@ class CreateAdvertisementFragment : Fragment(),
         _binding = FragmentCreateAdvertisementBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, title = "New advertisement", isBackButtonEnabled = true)
         binding.descriptionEt.setOnClickListener {
-            showBottomSheetFragment()
+            showDescriptionEditor()
+        }
+        binding.selectMake.setOnClickListener {
+            showMakeSelector()
         }
         binding.chosePhotoBtn.setOnClickListener { selectPhoto() }
         return binding.root
@@ -44,13 +49,19 @@ class CreateAdvertisementFragment : Fragment(),
 
     }
 
-    private fun showBottomSheetFragment() {
+    private fun showMakeSelector() {
+        val myFrag = BottomMakeDialogFragment()
+        myFrag.listener(this)
+        myFrag.show(childFragmentManager, "tag1")
+    }
+
+    private fun showDescriptionEditor() {
         val bundle = Bundle()
         bundle.putString("adsDescription", binding.descriptionEt.text.toString())
-        val bsdf = BottomDescriptionFragment()
-        bsdf.arguments = bundle
-        bsdf.listener(this)
-        bsdf.show(childFragmentManager, "tag")
+        val myFrag = BottomDescriptionDialogFragment()
+        myFrag.arguments = bundle
+        myFrag.listener(this)
+        myFrag.show(childFragmentManager, "tag")
     }
 
     private fun setupMenu() {
@@ -72,5 +83,9 @@ class CreateAdvertisementFragment : Fragment(),
 
     override fun onDataReceived(data: Editable) {
         binding.descriptionEt.text = data
+    }
+
+    override fun onDataReceived(data: String) {
+        binding.selectedMakeTv.text = data
     }
 }
