@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
         rvAdapter = AdsAdapter()
         rvAdapter.setData(data)
         binding.searchRv.apply {
-            LinearLayoutManager(this.context)
+            layoutManager = LinearLayoutManager(this.context)
             addItemDecoration(
                 DividerItemDecoration(
                     this.context,

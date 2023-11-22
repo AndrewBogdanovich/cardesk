@@ -1,4 +1,4 @@
-package com.example.cardesk.data
+package com.example.cardesk.data.db
 
 import androidx.room.RoomDatabase
 
