@@ -11,10 +11,11 @@ import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
-import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentSearchBinding
+import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.presentation.extension.navigateTo
 import com.example.cardesk.presentation.extension.setupToolbar
+import com.example.cardesk.presentation.extension.showToast
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
@@ -33,7 +34,7 @@ class SearchFragment : Fragment() {
         viewModel.viewModelScope.launch {
             initAdsRecyclerView(viewModel.loadAds())
             rvAdapter.setOnClickListener(object : AdsAdapter.OnClickListener {
-                override fun onClick(position: Int, model: AdvertisementResponse) {
+                override fun onClick(position: Int, model: AdvertisementModel) {
                     itemSelected(model)
                 }
             })
@@ -41,29 +42,30 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
-    private fun initAdsRecyclerView(data: List<AdvertisementResponse>) {
-        rvAdapter = AdsAdapter()
-        rvAdapter.setData(data)
-        binding.searchRv.apply {
-            layoutManager = LinearLayoutManager(this.context)
-            addItemDecoration(
-                DividerItemDecoration(
-                    this.context,
-                    LinearLayoutManager.VERTICAL
-                ).apply {
-                    setDrawable(
-                        ResourcesCompat.getDrawable(
-                            resources,
-                            R.drawable.spacing,
-                            null
-                        )!!
-                    )
-                })
-            adapter = rvAdapter
+    private fun initAdsRecyclerView(data: List<AdvertisementModel>) {
+        try {
+            rvAdapter = AdsAdapter()
+            rvAdapter.setData(data)
+            binding.searchRv.layoutManager = LinearLayoutManager(this.context)
+            binding.searchRv.addItemDecoration(DividerItemDecoration(
+                this.context,
+                LinearLayoutManager.VERTICAL
+            ).apply {
+                setDrawable(
+                    ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.spacing,
+                        null
+                    )!!
+                )
+            })
+            binding.searchRv.adapter = rvAdapter
+        } catch (e: Exception) {
+            this.context?.showToast(e.message.toString())
         }
     }
 
-    private fun itemSelected(model: AdvertisementResponse) {
+    private fun itemSelected(model: AdvertisementModel) {
         val bundle = Bundle()
         bundle.putString("adsObjectId", model.id)
         navigateTo(R.id.action_fragment_search_to_advertisementDetailFragment, bundle)

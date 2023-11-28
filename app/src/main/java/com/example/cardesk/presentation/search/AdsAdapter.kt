@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
-import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.AdvertisementItemBinding
+import com.example.cardesk.domain.model.AdvertisementModel
 import java.text.SimpleDateFormat
 
 class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
-    private val adapterData = mutableListOf<AdvertisementResponse>()
+    private val adapterData = mutableListOf<AdvertisementModel>()
     private var onClickListener: OnClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddsViewHolder {
         val binding =
@@ -47,7 +47,7 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
         }
     }
 
-    fun setData(data: List<AdvertisementResponse>) {
+    fun setData(data: List<AdvertisementModel>) {
         adapterData.apply {
             clear()
             addAll(data)
@@ -59,7 +59,7 @@ class AdsAdapter : RecyclerView.Adapter<AddsViewHolder>() {
     }
 
     interface OnClickListener {
-        fun onClick(position: Int, model: AdvertisementResponse)
+        fun onClick(position: Int, model: AdvertisementModel)
     }
 }
 

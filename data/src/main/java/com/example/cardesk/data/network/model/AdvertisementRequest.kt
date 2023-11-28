@@ -16,4 +16,6 @@ data class AdvertisementRequest(
     @SerializedName("body_type") val bodyType: String,
     @SerializedName("make") val make: String,
     @SerializedName("engine_type") val engineType: String,
+    @SerializedName("description") val description: String,
+    @SerializedName("color") val color: String,
 )
