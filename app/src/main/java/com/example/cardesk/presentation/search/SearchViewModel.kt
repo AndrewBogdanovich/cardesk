@@ -1,16 +1,33 @@
 package com.example.cardesk.presentation.search
 
 import androidx.lifecycle.ViewModel
-import com.example.cardesk.data.repository.AdvertisementRepositoryImpl
+import androidx.lifecycle.viewModelScope
 import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.domain.usecase.GetAllAdvertisementUseCase
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 
-class SearchViewModel: ViewModel() {
+class SearchViewModel(private val getAllAdsUSeCase: GetAllAdvertisementUseCase) : ViewModel() {
+    private val _ads = MutableSharedFlow<List<AdvertisementModel>>(
+        replay = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val ads: SharedFlow<List<AdvertisementModel>> = _ads.asSharedFlow()
 
-    suspend fun loadAds(): List<AdvertisementModel> {
-        val repo =
-            AdvertisementRepositoryImpl()
-        val uc = GetAllAdvertisementUseCase(repo)
-        return uc.execute()
+    init {
+        viewModelScope.launch {
+            _ads.emit(getAllAdsUSeCase.execute())
+        }
+    }
+
+    fun update(){
+
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 }

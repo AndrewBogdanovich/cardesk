@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
@@ -15,14 +15,13 @@ import com.example.cardesk.databinding.FragmentSearchBinding
 import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.presentation.extension.navigateTo
 import com.example.cardesk.presentation.extension.setupToolbar
-import com.example.cardesk.presentation.extension.showToast
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private lateinit var rvAdapter: AdsAdapter
     private val binding get() = _binding!!
-    private val viewModel: SearchViewModel by viewModels()
+    private val viewModel: SearchViewModel by viewModels { SearchViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,38 +30,39 @@ class SearchFragment : Fragment() {
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = false)
-        viewModel.viewModelScope.launch {
-            initAdsRecyclerView(viewModel.loadAds())
-            rvAdapter.setOnClickListener(object : AdsAdapter.OnClickListener {
-                override fun onClick(position: Int, model: AdvertisementModel) {
-                    itemSelected(model)
-                }
-            })
+        lifecycleScope.launch {
+            viewModel.ads.collect{
+                setupRecyclerView(it)
+            }
         }
         return binding.root
     }
 
-    private fun initAdsRecyclerView(data: List<AdvertisementModel>) {
-        try {
-            rvAdapter = AdsAdapter()
-            rvAdapter.setData(data)
-            binding.searchRv.layoutManager = LinearLayoutManager(this.context)
-            binding.searchRv.addItemDecoration(DividerItemDecoration(
-                this.context,
-                LinearLayoutManager.VERTICAL
-            ).apply {
-                setDrawable(
-                    ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.spacing,
-                        null
-                    )!!
-                )
-            })
-            binding.searchRv.adapter = rvAdapter
-        } catch (e: Exception) {
-            this.context?.showToast(e.message.toString())
-        }
+    private fun setupRecyclerView(data: List<AdvertisementModel>) {
+        rvAdapter = AdsAdapter()
+        rvAdapter.setData(data)
+        binding.searchRv.layoutManager = LinearLayoutManager(this.context)
+        binding.searchRv.addItemDecoration(DividerItemDecoration(
+            this.context,
+            LinearLayoutManager.VERTICAL
+        ).apply {
+            setDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.spacing,
+                    null
+                )!!
+            )
+        })
+        binding.searchRv.adapter = rvAdapter
+        rvAdapter.setOnClickListener(object : AdsAdapter.OnClickListener {
+            override fun onClick(
+                position: Int,
+                model: AdvertisementModel
+            ) {
+                itemSelected(model)
+            }
+        })
     }
 
     private fun itemSelected(model: AdvertisementModel) {

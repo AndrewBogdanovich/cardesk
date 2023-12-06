@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.advertisement
+package com.example.cardesk.presentation.advertisement.create
 
 import android.content.res.Resources
 import android.os.Bundle

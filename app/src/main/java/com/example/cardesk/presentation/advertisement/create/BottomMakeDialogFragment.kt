@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.advertisement
+package com.example.cardesk.presentation.advertisement.create
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -19,9 +19,10 @@ class BottomMakeDialogFragment : BottomSheetDialogFragment() {
     private val viewModel: CreateAdvertisementViewModel by viewModels()
     override fun getTheme(): Int = R.style.AppBottomSheetDialogTheme
 
-    fun listener(listener: BottomMakeListener){
+    fun listener(listener: BottomMakeListener) {
         this.listener = listener
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,18 +30,20 @@ class BottomMakeDialogFragment : BottomSheetDialogFragment() {
     ): View? {
         binding = BottomMakesSheetLayoutBinding.inflate(inflater, container, false)
         loadMakes()
+        viewModel.makes.observe(this) {
+            val result = it
+        }
         binding.saveBtn.setOnClickListener { saveSelectedMake() }
         return binding.root
     }
 
-    private fun loadMakes(){
+    private fun loadMakes() {
         viewModel.viewModelScope.launch {
-            val res = viewModel.loadMakes()
-            val q = res
+            viewModel.loadMakes()
         }
     }
 
-    private fun saveSelectedMake(){
+    private fun saveSelectedMake() {
         listener?.onDataReceived("Audi")
         dismiss()
     }

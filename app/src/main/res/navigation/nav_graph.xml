@@ -157,7 +157,7 @@
         tools:layout="@layout/fragment_forgot_password"/>
     <fragment
         android:id="@+id/createAdvertisementFragment"
-        android:name="com.example.cardesk.presentation.advertisement.CreateAdvertisementFragment"
+        android:name="com.example.cardesk.presentation.advertisement.create.CreateAdvertisementFragment"
         android:label="CreateAdvertisementFragment"
         tools:layout="@layout/fragment_create_advertisement"/>
     <fragment

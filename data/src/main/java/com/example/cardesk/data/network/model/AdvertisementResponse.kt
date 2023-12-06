@@ -1,5 +1,6 @@
 package com.example.cardesk.data.network.model
 
+import com.example.cardesk.domain.model.AdvertisementModel
 import com.google.gson.annotations.SerializedName
 
 data class AdvertisementResponse(
@@ -20,3 +21,23 @@ data class AdvertisementResponse(
     @SerializedName("description") val description: String,
     @SerializedName("color") val color: String,
 )
+
+fun AdvertisementResponse.toModel(): com.example.cardesk.domain.model.AdvertisementModel =
+    com.example.cardesk.domain.model.AdvertisementModel(
+        id = this.id,
+        model = this.model,
+        generation = this.generation,
+        city = this.city,
+        year = this.year,
+        dateCreating = this.dateCreating,
+        photos = this.photos,
+        mileage = this.mileage,
+        engineVolume = this.engineVolume,
+        transmission = this.transmission,
+        price = this.price,
+        bodyType = this.bodyType,
+        make = this.make,
+        engineType = this.engineType,
+        description = this.description,
+        color = this.color
+    )

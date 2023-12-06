@@ -7,5 +7,4 @@ class GetAllAdvertisementUseCase(private val repo: AdvertisementRepository) {
     suspend fun execute(): List<AdvertisementModel> {
         return repo.getAllAds()
     }
-
 }

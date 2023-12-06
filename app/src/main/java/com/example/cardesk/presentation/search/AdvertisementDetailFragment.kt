@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
@@ -29,11 +31,13 @@ class AdvertisementDetailFragment : Fragment() {
     ): View {
         _binding = FragmentAdvertisementDetailBinding.inflate(inflater, container, false)
         displayBottomNavBar(false)
-        viewModel.viewModelScope.launch {
-            val adsId = arguments?.getString("adsObjectId")
-            adsId?.let {
-                val adsObject = viewModel.getAds(it)
-                initView(adsObject)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                val adId = arguments?.getString("adsObjectId")
+                adId?.let {
+                    val item = viewModel.getAd(adId)
+                    initView(item)
+                }
             }
         }
         return binding.root

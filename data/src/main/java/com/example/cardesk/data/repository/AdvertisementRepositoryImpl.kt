@@ -1,20 +1,15 @@
 package com.example.cardesk.data.repository
 
-import com.example.cardesk.data.network.RetrofitClient
-import com.example.cardesk.data.network.helper.AdvertisementApiHelperImpl
-import com.example.cardesk.data.transformer.AdvertisementTransformer
+import com.example.cardesk.data.network.api.AdvertisementApiHelper
+import com.example.cardesk.data.network.model.toModel
 import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.domain.repository.AdvertisementRepository
 
-class AdvertisementRepositoryImpl : AdvertisementRepository {
+class AdvertisementRepositoryImpl(private val advertisementApiHelper: AdvertisementApiHelper) :
+    AdvertisementRepository {
     override suspend fun getAllAds(): List<AdvertisementModel> {
-        val apiHelper =
-            AdvertisementApiHelperImpl(RetrofitClient.advertisementApiService)
-        val network = apiHelper.getAllAds()
-        val result = network.map { adItem ->
-                AdvertisementTransformer.transformToModel(adItem)
-        }
-        return result
+        val network = advertisementApiHelper.getAllAds()
+        return network.map { it.toModel() }
     }
 
     override suspend fun getAdsById(id: String): List<AdvertisementModel> {

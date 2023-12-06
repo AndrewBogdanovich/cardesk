@@ -1,9 +1,8 @@
-package com.example.cardesk.data.network.helper
+package com.example.cardesk.data.network.api
 
-import com.example.cardesk.data.network.api.VehicleApiService
 import com.example.cardesk.data.network.model.MakeResponse
 
-class VehicleApiHelperImpl(private val vehicleApiService: VehicleApiService) : VehicleApiHelper {
+class VehicleApiImpl(private val vehicleApiService: VehicleApiService) : VehicleApiService {
     override suspend fun getAllVehicle() = vehicleApiService.getAllVehicle()
 
     override suspend fun getVehiclesByModel(model: String) =

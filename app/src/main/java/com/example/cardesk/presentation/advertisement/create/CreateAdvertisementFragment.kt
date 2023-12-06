@@ -1,4 +1,4 @@
-package com.example.cardesk.presentation.advertisement
+package com.example.cardesk.presentation.advertisement.create
 
 import android.os.Bundle
 import android.text.Editable
@@ -22,7 +22,7 @@ class CreateAdvertisementFragment : Fragment(),
     BottomMakeDialogFragment.BottomMakeListener {
     private var _binding: FragmentCreateAdvertisementBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CreateAdvertisementViewModel by viewModels()
+    private val viewModel: CreateAdvertisementViewModel by viewModels{CreateAdvertisementViewModelFactory()}
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
