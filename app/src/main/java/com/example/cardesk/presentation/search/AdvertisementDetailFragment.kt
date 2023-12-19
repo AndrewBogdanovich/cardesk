@@ -24,6 +24,7 @@ class AdvertisementDetailFragment : Fragment() {
     private var _binding: FragmentAdvertisementDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AdvertisementDetailViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,7 +33,7 @@ class AdvertisementDetailFragment : Fragment() {
         _binding = FragmentAdvertisementDetailBinding.inflate(inflater, container, false)
         displayBottomNavBar(false)
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 val adId = arguments?.getString("adsObjectId")
                 adId?.let {
                     val item = viewModel.getAd(adId)
@@ -47,19 +48,39 @@ class AdvertisementDetailFragment : Fragment() {
         val title =
             advertisement[0].make + " " + advertisement[0].model + " " + advertisement[0].generation
         setupToolbar(isShowing = true, isBackButtonEnabled = true, title = title)
-        binding.adsPriceTv.text = advertisement[0].price
-        binding.adsPhotoIv.load(advertisement[0].photos) {
+        setPrice(advertisement[0].price)
+        setAdsPhoto(advertisement[0].photos)
+        setParamsDescription(advertisement[0])
+        setDescription(advertisement[0].description)
+        setDateAndCity(advertisement[0].dateCreating, advertisement[0].city)
+        binding.iconsLayout.show()
+    }
+
+    private fun setPrice(price: String) {
+        binding.adsPriceTv.text = price
+    }
+
+    private fun setAdsPhoto(photoUrl: String) {
+        binding.adsPhotoIv.load(photoUrl) {
             crossfade(true)
             placeholder(R.drawable.baseline_image_placeholder)
             transformations(RoundedCornersTransformation())
         }
+    }
+
+    private fun setParamsDescription(adItem: AdvertisementResponse) {
         binding.adsParamsDescriptionEt.text =
-            advertisement[0].year + ", " + advertisement[0].engineVolume + ", " + advertisement[0].engineType + ", " + advertisement[0].bodyType + ", " + advertisement[0].mileage
-        binding.descriptionTv.text = advertisement[0].description
+            adItem.year + ", " + adItem.engineVolume + ", " + adItem.engineType + ", " + adItem.bodyType + ", " + adItem.mileage
+    }
+
+    private fun setDescription(description: String) {
+        binding.descriptionTv.text = description
+    }
+
+    private fun setDateAndCity(dateCreating: String, city: String) {
         val date =
-            SimpleDateFormat("dd MMMM yyyy").format(advertisement[0].dateCreating.toLong())
-        binding.adsCityAndDateTv.text = advertisement[0].city + " : " + date
-        binding.iconsLayout.show()
+            SimpleDateFormat("dd MMMM yyyy").format(dateCreating.toLong())
+        binding.adsCityAndDateTv.text = city + " : " + date
     }
 
     override fun onDestroyView() {
