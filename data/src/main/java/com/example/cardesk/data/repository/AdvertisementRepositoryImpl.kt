@@ -1,6 +1,6 @@
 package com.example.cardesk.data.repository
 
-import com.example.cardesk.data.network.api.AdvertisementApiHelper
+import com.example.cardesk.data.network.api.advertisement.AdvertisementApiHelper
 import com.example.cardesk.data.network.model.toModel
 import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.domain.repository.AdvertisementRepository

@@ -1,5 +1,6 @@
-package com.example.cardesk.data.network.api
+package com.example.cardesk.data.network.api.vehicle
 
+import com.example.cardesk.data.network.api.vehicle.VehicleApiService
 import com.example.cardesk.data.network.model.MakeResponse
 
 class VehicleApiImpl(private val vehicleApiService: VehicleApiService) : VehicleApiService {
@@ -9,5 +10,4 @@ class VehicleApiImpl(private val vehicleApiService: VehicleApiService) : Vehicle
         vehicleApiService.getVehiclesByModel(model)
 
     override suspend fun getVehiclesByMark(mark: String) = vehicleApiService.getVehiclesByMark(mark)
-    override suspend fun getMakes(): List<MakeResponse> = vehicleApiService.getMakes()
 }

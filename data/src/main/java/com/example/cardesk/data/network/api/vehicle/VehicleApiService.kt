@@ -1,4 +1,4 @@
-package com.example.cardesk.data.network.api
+package com.example.cardesk.data.network.api.vehicle
 
 import com.example.cardesk.data.network.model.MakeResponse
 import com.example.cardesk.data.network.model.VehicleResponse
@@ -6,9 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface VehicleApiService {
-
-    @GET("api/data/make")
-    suspend fun getMakes(): List<MakeResponse>
 
     @GET("api/data/vehicle")
     suspend fun getAllVehicle(): List<VehicleResponse>

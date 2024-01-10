@@ -46,7 +46,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -62,12 +62,12 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //coil
-    implementation("io.coil-kt:coil:2.4.0")
+    implementation("io.coil-kt:coil:2.5.0")
     //fragment
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     //navigation component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
@@ -76,5 +76,5 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     //LeakCanary
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.13")
 }

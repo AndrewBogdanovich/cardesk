@@ -22,8 +22,8 @@ data class AdvertisementResponse(
     @SerializedName("color") val color: String,
 )
 
-fun AdvertisementResponse.toModel(): com.example.cardesk.domain.model.AdvertisementModel =
-    com.example.cardesk.domain.model.AdvertisementModel(
+fun AdvertisementResponse.toModel(): AdvertisementModel =
+    AdvertisementModel(
         id = this.id,
         model = this.model,
         generation = this.generation,

@@ -1,25 +1,22 @@
-package com.example.cardesk.presentation.advertisement.create
+package com.example.cardesk.presentation.advertisement.create.description
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewModelScope
 import com.example.cardesk.R
-import com.example.cardesk.databinding.BottomMakesSheetLayoutBinding
+import com.example.cardesk.databinding.BottomDescriptionSheetLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.launch
 
-class BottomMakeDialogFragment : BottomSheetDialogFragment() {
-    lateinit var binding: BottomMakesSheetLayoutBinding
-    private var listener: BottomMakeListener? = null
-    private val viewModel: CreateAdvertisementViewModel by viewModels()
+class BottomDescriptionDialogFragment : BottomSheetDialogFragment() {
+    lateinit var binding: BottomDescriptionSheetLayoutBinding
+    private var listener: BottomDescriptionListener? = null
     override fun getTheme(): Int = R.style.AppBottomSheetDialogTheme
 
-    fun listener(listener: BottomMakeListener) {
+    fun listener(listener: BottomDescriptionListener){
         this.listener = listener
     }
 
@@ -27,24 +24,21 @@ class BottomMakeDialogFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = BottomMakesSheetLayoutBinding.inflate(inflater, container, false)
-        loadMakes()
-        viewModel.makes.observe(this) {
-            val result = it
+    ): View {
+        binding = BottomDescriptionSheetLayoutBinding.inflate(layoutInflater, container, false)
+        binding.closeFragment.setOnClickListener {
+            dismiss()
         }
-        binding.saveBtn.setOnClickListener { saveSelectedMake() }
+        binding.saveBtn.setOnClickListener {
+            saveDescriptionText()
+        }
+        binding.descriptionEt.text.append(arguments?.getString("adsDescription"))
         return binding.root
     }
 
-    private fun loadMakes() {
-        viewModel.viewModelScope.launch {
-            viewModel.loadMakes()
-        }
-    }
-
-    private fun saveSelectedMake() {
-        listener?.onDataReceived("Audi")
+    private fun saveDescriptionText() {
+        val descriptionText = binding.descriptionEt.text
+        listener?.onDataReceived(descriptionText)
         dismiss()
     }
 
@@ -65,7 +59,8 @@ class BottomMakeDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
-    interface BottomMakeListener {
-        fun onDataReceived(data: String)
+    interface BottomDescriptionListener{
+        fun onDataReceived(data: Editable)
     }
 }
+

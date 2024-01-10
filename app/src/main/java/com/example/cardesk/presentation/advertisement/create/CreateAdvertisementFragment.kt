@@ -15,6 +15,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentCreateAdvertisementBinding
+import com.example.cardesk.presentation.advertisement.create.description.BottomDescriptionDialogFragment
+import com.example.cardesk.presentation.advertisement.create.make.BottomMakeDialogFragment
 import com.example.cardesk.presentation.extension.setupToolbar
 
 class CreateAdvertisementFragment : Fragment(),
@@ -52,7 +54,7 @@ class CreateAdvertisementFragment : Fragment(),
     private fun showMakeSelector() {
         val myFrag = BottomMakeDialogFragment()
         myFrag.listener(this)
-        myFrag.show(childFragmentManager, "tag1")
+        myFrag.show(childFragmentManager, "MakeDialogFragmentTag")
     }
 
     private fun showDescriptionEditor() {
@@ -61,7 +63,7 @@ class CreateAdvertisementFragment : Fragment(),
         val myFrag = BottomDescriptionDialogFragment()
         myFrag.arguments = bundle
         myFrag.listener(this)
-        myFrag.show(childFragmentManager, "tag")
+        myFrag.show(childFragmentManager, "DescriptionDialogFragmentTag")
     }
 
     private fun setupMenu() {

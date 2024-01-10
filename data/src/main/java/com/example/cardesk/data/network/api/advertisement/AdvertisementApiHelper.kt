@@ -1,4 +1,4 @@
-package com.example.cardesk.data.network.api
+package com.example.cardesk.data.network.api.advertisement
 
 import com.example.cardesk.data.network.model.AdvertisementRequest
 import com.example.cardesk.data.network.model.AdvertisementResponse

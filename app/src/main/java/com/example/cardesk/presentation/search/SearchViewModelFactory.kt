@@ -3,8 +3,9 @@ package com.example.cardesk.presentation.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.cardesk.data.network.RetrofitClient
-import com.example.cardesk.data.network.api.AdvertisementApiHelperImpl
+import com.example.cardesk.data.network.api.advertisement.AdvertisementApiHelperImpl
 import com.example.cardesk.data.repository.AdvertisementRepositoryImpl
+import com.example.cardesk.domain.usecase.GetAllAdvertisementUseCase
 
 class SearchViewModelFactory : ViewModelProvider.Factory {
 
@@ -17,7 +18,7 @@ class SearchViewModelFactory : ViewModelProvider.Factory {
     }
 
     private val fetchGetAllADsUseCase by lazy {
-        com.example.cardesk.domain.usecase.GetAllAdvertisementUseCase(
+        GetAllAdvertisementUseCase(
             fetchAdsRepository
         )
     }

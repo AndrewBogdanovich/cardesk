@@ -1,26 +1,28 @@
 package com.example.cardesk.presentation.advertisement.create
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cardesk.data.network.RetrofitClient
-import com.example.cardesk.data.network.api.AdvertisementApiHelperImpl
-import com.example.cardesk.data.network.api.VehicleApiImpl
-import com.example.cardesk.data.network.model.AdvertisementRequest
-import com.example.cardesk.data.network.model.MakeResponse
+import androidx.lifecycle.viewModelScope
+import com.example.cardesk.domain.model.MakesModel
+import com.example.cardesk.domain.usecase.GetMakesUseCase
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 
-class CreateAdvertisementViewModel : ViewModel() {
+class CreateAdvertisementViewModel(private val getMakesUseCase: GetMakesUseCase) : ViewModel() {
 
-    private val _makes = MutableLiveData<List<MakeResponse>>()
-    val makes: LiveData<List<MakeResponse>> = _makes
-    suspend fun createAds(newAds: AdvertisementRequest) {
-        val adsApiHelper =
-            AdvertisementApiHelperImpl(RetrofitClient.advertisementApiService)
-        adsApiHelper.addAds(newAds)
+    private val _makes = MutableSharedFlow<List<MakesModel>>(
+        replay = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val makes: SharedFlow<List<MakesModel>> = _makes.asSharedFlow()
+
+    init {
+        viewModelScope.launch {
+            _makes.emit(loadMakes())
+        }
     }
 
-    suspend fun loadMakes() {
-        val vehicleApiHelper = VehicleApiImpl(RetrofitClient.vehicleApiService)
-        _makes.value = vehicleApiHelper.getMakes()
-    }
+    private suspend fun loadMakes(): List<MakesModel> = getMakesUseCase.execute()
 }
