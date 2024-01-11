@@ -11,6 +11,5 @@ class AdvertisementApiHelperImpl(private val advertisementApiService: Advertisem
     override suspend fun getAdsById(id: String): List<AdvertisementResponse> =
         advertisementApiService.getAdsById(id)
 
-
     override suspend fun addAds(ads: AdvertisementRequest) = advertisementApiService.addAds(ads)
 }

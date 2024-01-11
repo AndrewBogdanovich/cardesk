@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
-class SearchViewModel(private val getAllAdsUSeCase: GetAllAdvertisementUseCase) : ViewModel() {
+class SearchViewModel(private val getAllAdsUseCase: GetAllAdvertisementUseCase) : ViewModel() {
     private val _ads = MutableSharedFlow<List<AdvertisementModel>>(
         replay = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST
@@ -19,15 +19,7 @@ class SearchViewModel(private val getAllAdsUSeCase: GetAllAdvertisementUseCase) 
 
     init {
         viewModelScope.launch {
-            _ads.emit(getAllAdsUSeCase.execute())
+            _ads.emit(getAllAdsUseCase.execute())
         }
-    }
-
-    fun update(){
-
-    }
-
-    override fun onCleared() {
-        super.onCleared()
     }
 }

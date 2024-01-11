@@ -18,18 +18,16 @@ import com.example.cardesk.databinding.FragmentCreateAdvertisementBinding
 import com.example.cardesk.presentation.advertisement.create.description.BottomDescriptionDialogFragment
 import com.example.cardesk.presentation.advertisement.create.make.BottomMakeDialogFragment
 import com.example.cardesk.presentation.extension.setupToolbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CreateAdvertisementFragment : Fragment(),
     BottomDescriptionDialogFragment.BottomDescriptionListener,
     BottomMakeDialogFragment.BottomMakeListener {
     private var _binding: FragmentCreateAdvertisementBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CreateAdvertisementViewModel by viewModels{CreateAdvertisementViewModelFactory()}
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    private val viewModel by viewModel<CreateAdvertisementViewModel>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCreateAdvertisementBinding.inflate(inflater, container, false)
         setupToolbar(isShowing = true, title = "New advertisement", isBackButtonEnabled = true)
         binding.descriptionEt.setOnClickListener {

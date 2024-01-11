@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,12 +15,13 @@ import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.presentation.extension.navigateTo
 import com.example.cardesk.presentation.extension.setupToolbar
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private lateinit var rvAdapter: AdsAdapter
     private val binding get() = _binding!!
-    private val viewModel: SearchViewModel by viewModels { SearchViewModelFactory() }
+    private val viewModel by viewModel<SearchViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

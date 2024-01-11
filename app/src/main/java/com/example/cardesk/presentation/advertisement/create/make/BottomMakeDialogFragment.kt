@@ -7,21 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
 import com.example.cardesk.databinding.BottomMakesSheetLayoutBinding
 import com.example.cardesk.domain.model.MakesModel
 import com.example.cardesk.presentation.advertisement.create.CreateAdvertisementViewModel
-import com.example.cardesk.presentation.advertisement.create.CreateAdvertisementViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BottomMakeDialogFragment : BottomSheetDialogFragment() {
     lateinit var binding: BottomMakesSheetLayoutBinding
     private var listener: BottomMakeListener? = null
-    private val viewModel: CreateAdvertisementViewModel by viewModels { CreateAdvertisementViewModelFactory() }
+    private val viewModel by viewModel<CreateAdvertisementViewModel>()
     private lateinit var rvAdapter: MakesAdapter
     override fun getTheme(): Int = R.style.AppBottomSheetDialogTheme
 
