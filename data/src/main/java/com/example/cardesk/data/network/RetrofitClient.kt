@@ -6,7 +6,6 @@ import com.example.cardesk.data.network.api.vehicle.VehicleApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object RetrofitClient {
 
@@ -22,11 +21,11 @@ object RetrofitClient {
     private fun getOkHttpClient(): OkHttpClient =
         OkHttpClient().newBuilder().addInterceptor(TokenInterceptor).build()
 
-    val vehicleApiService: VehicleApiService =
+    fun getVehicleApiService(): VehicleApiService =
         getRetrofitInstance().create(VehicleApiService::class.java)
 
-    val advertisementApiService: AdvertisementApiService =
+    fun getAdvertisementApiService(): AdvertisementApiService =
         getRetrofitInstance().create(AdvertisementApiService::class.java)
 
-    val makeApiService: MakeApiService = getRetrofitInstance().create(MakeApiService::class.java)
+    fun getMakeApiService(): MakeApiService = getRetrofitInstance().create(MakeApiService::class.java)
 }

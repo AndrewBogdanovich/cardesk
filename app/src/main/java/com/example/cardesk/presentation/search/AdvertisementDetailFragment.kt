@@ -14,16 +14,19 @@ import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
 import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentAdvertisementDetailBinding
+import com.example.cardesk.domain.model.AdvertisementModel
 import com.example.cardesk.presentation.extension.displayBottomNavBar
 import com.example.cardesk.presentation.extension.setupToolbar
 import com.example.cardesk.presentation.extension.show
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 
 class AdvertisementDetailFragment : Fragment() {
     private var _binding: FragmentAdvertisementDetailBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: AdvertisementDetailViewModel by viewModels()
+    private val viewModel by viewModel<AdvertisementDetailViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,19 +35,17 @@ class AdvertisementDetailFragment : Fragment() {
     ): View {
         _binding = FragmentAdvertisementDetailBinding.inflate(inflater, container, false)
         displayBottomNavBar(false)
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                val adId = arguments?.getString("adsObjectId")
-                adId?.let {
-                    val item = viewModel.getAd(adId)
-                    initView(item)
-                }
+        lifecycleScope.launch {
+            val adId = arguments?.getString("adsObjectId")
+            adId?.let {
+                viewModel.getAd(it)
             }
+            viewModel.adById.collect { initView(it) }
         }
         return binding.root
     }
 
-    private fun initView(advertisement: List<AdvertisementResponse>) {
+    private fun initView(advertisement: List<AdvertisementModel>) {
         val title =
             advertisement[0].make + " " + advertisement[0].model + " " + advertisement[0].generation
         setupToolbar(isShowing = true, isBackButtonEnabled = true, title = title)
@@ -68,7 +69,7 @@ class AdvertisementDetailFragment : Fragment() {
         }
     }
 
-    private fun setParamsDescription(adItem: AdvertisementResponse) {
+    private fun setParamsDescription(adItem: AdvertisementModel) {
         binding.adsParamsDescriptionEt.text =
             adItem.year + ", " + adItem.engineVolume + ", " + adItem.engineType + ", " + adItem.bodyType + ", " + adItem.mileage
     }

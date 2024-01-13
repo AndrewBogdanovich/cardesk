@@ -13,7 +13,8 @@ class AdvertisementRepositoryImpl(private val advertisementApiHelper: Advertisem
     }
 
     override suspend fun getAdsById(id: String): List<AdvertisementModel> {
-        TODO("Not yet implemented")
+        val network = advertisementApiHelper.getAdsById("objectId='${id}'")
+        return network.map { it.toModel() }
     }
 
     override suspend fun addAds(ads: AdvertisementModel) {

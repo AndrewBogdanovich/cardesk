@@ -79,4 +79,8 @@ dependencies {
     implementation("io.insert-koin:koin-core:3.5.3")
     implementation("io.insert-koin:koin-android:3.5.3")
     testImplementation("io.insert-koin:koin-test:3.5.3")
+    //DI Dagger
+    implementation("com.google.dagger:dagger-android:2.17")
+    annotationProcessor("com.google.dagger:dagger-android-processor:2.17")
+    annotationProcessor("com.google.dagger:dagger-compiler:2.17")
 }
