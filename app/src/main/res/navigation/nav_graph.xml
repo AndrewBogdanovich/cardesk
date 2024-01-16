@@ -5,44 +5,54 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/fragment_search">
 
+    <include app:graph="@navigation/authorization_nav_graph" />
+    <include app:graph="@navigation/other_fragments_nav_graph" />
+
     <fragment
         android:id="@+id/fragment_search"
         android:name="com.example.cardesk.presentation.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_fragment_search_to_advertisementDetailFragment"
             app:destination="@id/advertisementDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/advertisementDetailFragment"
+        android:name="com.example.cardesk.presentation.search.AdvertisementDetailFragment"
+        android:label="AdvertisementDetailFragment"
+        tools:layout="@layout/fragment_advertisement_detail" />
+
     <fragment
         android:id="@+id/fragment_bookmarks"
         android:name="com.example.cardesk.presentation.bookmark.BookmarksFragment"
         android:label="BookmarksFragment"
-        tools:layout="@layout/fragment_bookmarks" >
+        tools:layout="@layout/fragment_bookmarks">
         <action
             android:id="@+id/action_fragment_bookmarks_to_fragment_authorization"
-            app:destination="@id/fragment_authorization" />
+            app:destination="@id/authorization_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/fragment_my_ads"
         android:name="com.example.cardesk.presentation.advertisement.MyAdvertisementFragment"
         android:label="MyAdsFragment"
-        tools:layout="@layout/fragment_my_advertisement" >
-        <action
-            android:id="@+id/action_fragment_my_ads_to_fragment_authorization"
-            app:destination="@id/fragment_authorization" />
+        tools:layout="@layout/fragment_my_advertisement">
         <action
             android:id="@+id/action_fragment_my_ads_to_createAdvertisementFragment"
             app:destination="@id/createAdvertisementFragment" />
+        <action
+            android:id="@+id/action_fragment_my_ads_to_fragment_authorization"
+            app:destination="@id/authorization_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/fragment_chats"
         android:name="com.example.cardesk.presentation.chat.ChatsFragment"
         android:label="ChatsFragment"
-        tools:layout="@layout/fragment_chats" >
+        tools:layout="@layout/fragment_chats">
         <action
             android:id="@+id/action_fragment_chats_to_fragment_authorization"
-            app:destination="@id/fragment_authorization" />
+            app:destination="@id/authorization_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/fragment_other"
@@ -51,126 +61,56 @@
         tools:layout="@layout/fragment_other">
         <action
             android:id="@+id/action_fragment_other_to_fragment_authorization"
-            app:destination="@id/fragment_authorization" />
+            app:destination="@id/authorization_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_vin_checker"
-            app:destination="@id/fragment_vin_checker" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_car_valuation_calculator"
-            app:destination="@id/fragment_car_valuation_calculator" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_finance"
-            app:destination="@id/fragment_finance" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_installment_plan"
-            app:destination="@id/fragment_installment_plan" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_vehicle_checklist"
-            app:destination="@id/fragment_vehicle_checklist" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_modification_catalog"
-            app:destination="@id/fragment_modification_catalog" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_fragment_car_trade_simulator"
-            app:destination="@id/carTradeSimulatorFragment" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_privacyPolicyFragment"
-            app:destination="@id/privacyPolicyFragment" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_reportProblemFragment"
-            app:destination="@id/reportProblemFragment" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_appThemeFragment"
-            app:destination="@id/appThemeFragment" />
+            app:destination="@id/other_fragments_nav_graph" />
         <action
             android:id="@+id/action_fragment_other_to_appLanguageFragment"
-            app:destination="@id/appLanguageFragment" />
+            app:destination="@id/other_fragments_nav_graph" />
     </fragment>
-    <fragment
-        android:id="@+id/fragment_authorization"
-        android:name="com.example.cardesk.presentation.other.authorization.AuthorizationFragment"
-        android:label="AuthorizationFragment"
-        tools:layout="@layout/fragment_authorization" >
-        <action
-            android:id="@+id/action_fragment_authorization_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/fragment_vin_checker"
-        android:name="com.example.cardesk.presentation.other.view.source.VINCheckFragment"
-        android:label="VINCheckerFragment"
-        tools:layout="@layout/fragment_vin_check" />
-    <fragment
-        android:id="@+id/fragment_car_valuation_calculator"
-        android:name="com.example.cardesk.presentation.other.view.source.CarValuationCalculatorFragment"
-        android:label="CarValuationCalculatorFragment"
-        tools:layout="@layout/fragment_car_valuation_calculator" />
-    <fragment
-        android:id="@+id/fragment_finance"
-        android:name="com.example.cardesk.presentation.other.view.source.FinanceFragment"
-        android:label="FinanceFragment"
-        tools:layout="@layout/fragment_finance"/>
-    <fragment
-        android:id="@+id/fragment_installment_plan"
-        android:name="com.example.cardesk.presentation.other.view.source.InstallmentPlanFragment"
-        android:label="InstallmentPlanFragment"
-        tools:layout="@layout/fragment_installment_plan"/>
-    <fragment
-        android:id="@+id/fragment_vehicle_checklist"
-        android:name="com.example.cardesk.presentation.other.view.source.VehicleCheckListFragment"
-        android:label="VehicleCheckListFragment"
-        tools:layout="@layout/fragment_vehicke_checklist"/>
-    <fragment
-        android:id="@+id/fragment_modification_catalog"
-        android:name="com.example.cardesk.presentation.other.view.source.ModificationCatalogFragment"
-        android:label="ModificationCatalogFragment"
-        tools:layout="@layout/fragment_modification_catalog"/>
-    <fragment
-        android:id="@+id/carTradeSimulatorFragment"
-        android:name="com.example.cardesk.presentation.other.view.source.CarTraderSimulatorFragment"
-        android:label="CarTraderSimulatorFragment"
-        tools:layout="@layout/fragment_car_trader_simulator"/>
-    <fragment
-        android:id="@+id/appLanguageFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.AppLanguageFragment"
-        android:label="AppLanguageFragment"
-        tools:layout="@layout/fragment_app_language"/>
-    <fragment
-        android:id="@+id/appThemeFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.AppThemeFragment"
-        android:label="AppThemeFragment"
-        tools:layout="@layout/fragment_app_theme"/>
-    <fragment
-        android:id="@+id/privacyPolicyFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.PrivacyPolicyFragment"
-        android:label="PrivacyPolicyFragment"
-        tools:layout="@layout/fragment_privacy_policy"/>
-    <fragment
-        android:id="@+id/reportProblemFragment"
-        android:name="com.example.cardesk.presentation.other.view.other.ReportProblemFragment"
-        android:label="ReportProblemFragment"
-        tools:layout="@layout/fragment_report_problem"/>
-    <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.cardesk.presentation.other.authorization.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment"
-        tools:layout="@layout/fragment_forgot_password"/>
+
     <fragment
         android:id="@+id/createAdvertisementFragment"
         android:name="com.example.cardesk.presentation.advertisement.create.CreateAdvertisementFragment"
         android:label="CreateAdvertisementFragment"
-        tools:layout="@layout/fragment_create_advertisement"/>
-    <fragment
-        android:id="@+id/advertisementDetailFragment"
-        android:name="com.example.cardesk.presentation.search.AdvertisementDetailFragment"
-        android:label="AdvertisementDetailFragment"
-        tools:layout="@layout/fragment_advertisement_detail"/>
+        tools:layout="@layout/fragment_create_advertisement" />
+
     <fragment
         android:id="@+id/imageDetailView"
         android:name="com.example.cardesk.presentation.util.ImageDetailFragment"
         android:label="ImageDetailView"
-        tools:layout="@layout/fragment_image_detail"/>
+        tools:layout="@layout/fragment_image_detail" />
 
-    <action android:id="@+id/action_to_image_detail_fragment"
-        app:destination="@id/imageDetailView"/>
+    <action
+        android:id="@+id/action_to_image_detail_fragment"
+        app:destination="@id/imageDetailView" />
+
 </navigation>
