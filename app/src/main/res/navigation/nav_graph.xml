@@ -165,4 +165,12 @@
         android:name="com.example.cardesk.presentation.search.AdvertisementDetailFragment"
         android:label="AdvertisementDetailFragment"
         tools:layout="@layout/fragment_advertisement_detail"/>
+    <fragment
+        android:id="@+id/imageDetailView"
+        android:name="com.example.cardesk.presentation.util.ImageDetailFragment"
+        android:label="ImageDetailView"
+        tools:layout="@layout/fragment_image_detail"/>
+
+    <action android:id="@+id/action_to_image_detail_fragment"
+        app:destination="@id/imageDetailView"/>
 </navigation>

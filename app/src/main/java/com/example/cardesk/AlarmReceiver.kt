@@ -11,42 +11,49 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import kotlin.random.Random
 
-class AlarmReceiver: BroadcastReceiver() {
+class AlarmReceiver : BroadcastReceiver() {
+    private val channelId = "idChanel"
+
     override fun onReceive(p0: Context?, p1: Intent?) {
         Log.d("AlarmManager", "Received Intent")
-        showNotification(p0 as Context)
+        prepareNotification(p0 as Context)
     }
 
-    private fun showNotification(context: Context) {
-        val channelId = "idChanel"
+    private fun prepareNotification(context: Context) {
+        createNotificationChannel(context)
+        showNotification(context)
+    }
 
-        val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.stab_app_logo)
-            .setContentTitle("Notification from alarmManager")
-            .setContentText("content of the notification")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
+    private fun createNotificationChannel(context: Context) {
         val name = "notificationChannel"
         val descriptionText = "description"
         val importance = NotificationManager.IMPORTANCE_DEFAULT
         val channel = NotificationChannel(channelId, name, importance).apply {
             description = descriptionText
         }
-
         val notificationManager: NotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
+    }
 
+    private fun showNotification(context: Context){
         with(NotificationManagerCompat.from(context)) {
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return
-            }
-            notify(1223, builder.build())
+            if(!checkNotificationPermission(context)) return
+            notify(Random.nextInt(), getNotificationViewBuilder(context).build())
         }
     }
+
+    private fun checkNotificationPermission(context: Context): Boolean {
+        return ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun getNotificationViewBuilder(
+        context: Context
+    ): NotificationCompat.Builder =
+        NotificationCompat.Builder(context, channelId).setSmallIcon(R.drawable.stab_app_logo)
+            .setContentTitle("Notification from alarmManager")
+            .setContentText("content of the notification")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 }

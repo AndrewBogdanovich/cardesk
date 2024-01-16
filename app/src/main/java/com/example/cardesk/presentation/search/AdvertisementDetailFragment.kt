@@ -5,20 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.cardesk.R
-import com.example.cardesk.data.network.model.AdvertisementResponse
 import com.example.cardesk.databinding.FragmentAdvertisementDetailBinding
 import com.example.cardesk.domain.model.AdvertisementModel
+import com.example.cardesk.presentation.util.DoubleClickListener
 import com.example.cardesk.presentation.extension.displayBottomNavBar
+import com.example.cardesk.presentation.extension.navigateTo
 import com.example.cardesk.presentation.extension.setupToolbar
 import com.example.cardesk.presentation.extension.show
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -35,6 +34,14 @@ class AdvertisementDetailFragment : Fragment() {
     ): View {
         _binding = FragmentAdvertisementDetailBinding.inflate(inflater, container, false)
         displayBottomNavBar(false)
+        fetchingAd()
+        binding.adsPhotoIv.setOnClickListener {
+            openImageDetailView()
+        }
+        return binding.root
+    }
+
+    private fun fetchingAd() {
         lifecycleScope.launch {
             val adId = arguments?.getString("adsObjectId")
             adId?.let {
@@ -42,7 +49,15 @@ class AdvertisementDetailFragment : Fragment() {
             }
             viewModel.adById.collect { initView(it) }
         }
-        return binding.root
+    }
+
+    private fun openImageDetailView() {
+        lifecycleScope.launch {
+            val bundle = Bundle()
+            val item = viewModel.adById.first()
+            bundle.putString("imageUrl", item[0].photos)
+            navigateTo(R.id.action_to_image_detail_fragment, bundle)
+        }
     }
 
     private fun initView(advertisement: List<AdvertisementModel>) {
@@ -86,7 +101,7 @@ class AdvertisementDetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         displayBottomNavBar(true)
+        _binding = null
     }
 }
