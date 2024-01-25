@@ -15,6 +15,7 @@ import com.example.cardesk.AlarmReceiver
 import com.example.cardesk.R
 import com.example.cardesk.databinding.ActivityMainBinding
 import java.util.Calendar
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
