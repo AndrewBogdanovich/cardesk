@@ -20,7 +20,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -28,8 +28,21 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
+        getByName("debug") {
             
+        }
+    }
+    flavorDimensions += "version"
+    productFlavors {
+        create("dev"){
+            dimension = "version"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+        }
+        create("prod"){
+            dimension = "version"
+            applicationIdSuffix = ".prod"
+            versionNameSuffix = "-prod"
         }
     }
     buildFeatures{
