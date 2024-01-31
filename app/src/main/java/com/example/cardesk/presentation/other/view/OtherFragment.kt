@@ -1,5 +1,6 @@
 package com.example.cardesk.presentation.other.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +11,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardesk.R
 import com.example.cardesk.databinding.FragmentOtherBinding
+import com.example.cardesk.presentation.compose.ComposeActivity
 import com.example.cardesk.presentation.extension.navigateTo
 import com.example.cardesk.presentation.extension.setupToolbar
 import com.example.cardesk.presentation.other.adapter.OtherSettingsMenuAdapter
 import com.example.cardesk.presentation.other.model.OtherSettingsItem
+import org.koin.android.ext.android.get
 
 class OtherFragment : Fragment() {
     private var _binding: FragmentOtherBinding? = null
@@ -56,6 +59,7 @@ class OtherFragment : Fragment() {
                     getString(R.string.app_theme) -> navigateTo(R.id.action_fragment_other_to_appThemeFragment)
                     getString(R.string.privacy_policy) -> navigateTo(R.id.action_fragment_other_to_privacyPolicyFragment)
                     getString(R.string.report_a_problem) -> navigateTo(R.id.action_fragment_other_to_reportProblemFragment)
+                    getString(R.string.to_compose_screen) -> startActivity(Intent(this.context, ComposeActivity::class.java))
                 }
             }
 
@@ -151,6 +155,11 @@ class OtherFragment : Fragment() {
                 getString(R.string.privacy_policy),
                 false,
                 R.drawable.baseline_privacy_tip_24
+            ),
+            OtherSettingsItem.SettingsItem(
+                getString(R.string.to_compose_screen),
+                false,
+                R.drawable.baseline_auto_awesome_24
             )
         )
     }

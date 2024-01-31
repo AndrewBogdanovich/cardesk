@@ -21,15 +21,23 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
+        debug {
+            
+        }
     }
     buildFeatures{
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -63,6 +71,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //coil
     implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
     //fragment
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     //navigation component
@@ -77,10 +86,24 @@ dependencies {
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.13")
     //DI koin
     implementation("io.insert-koin:koin-core:3.5.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.3")
     implementation("io.insert-koin:koin-android:3.5.3")
     testImplementation("io.insert-koin:koin-test:3.5.3")
     //DI Dagger
     implementation("com.google.dagger:dagger-android:2.17")
     annotationProcessor("com.google.dagger:dagger-android-processor:2.17")
     annotationProcessor("com.google.dagger:dagger-compiler:2.17")
+    //compose
+    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material")
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
