@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "472682667918",
+    "project_id": "cardesk-87c4e",
+    "storage_bucket": "cardesk-87c4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472682667918:android:ede413417fca889f7b4edf",
+        "android_client_info": {
+          "package_name": "com.example.cardesk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Bb17-9lnSGOWk1lOKi1TMheZV2fa7ZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
