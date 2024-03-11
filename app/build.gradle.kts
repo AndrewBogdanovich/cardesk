@@ -32,19 +32,7 @@ android {
             
         }
     }
-    flavorDimensions += "version"
-    productFlavors {
-        create("dev"){
-            dimension = "version"
-            applicationIdSuffix = ".dev"
-            versionNameSuffix = "-dev"
-        }
-        create("prod"){
-            dimension = "version"
-            applicationIdSuffix = ".prod"
-            versionNameSuffix = "-prod"
-        }
-    }
+
     buildFeatures{
         viewBinding = true
         compose = true
