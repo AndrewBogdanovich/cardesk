@@ -32,7 +32,6 @@ android {
             
         }
     }
-
     buildFeatures{
         viewBinding = true
         compose = true
@@ -76,8 +75,8 @@ dependencies {
     //fragment
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     //navigation component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
